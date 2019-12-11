@@ -1339,7 +1339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1023276500302899205
 Transform:
   m_ObjectHideFlags: 0
@@ -28913,9 +28913,9 @@ MonoBehaviour:
       y: 1
     - x: -1
       y: 0
-    - x: -1
-      y: 0
     - x: -2
+      y: 0
+    - x: -3
       y: 0
   - myCoordinates:
     - x: 0
