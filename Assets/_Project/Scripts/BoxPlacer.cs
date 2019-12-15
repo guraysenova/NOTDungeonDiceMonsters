@@ -23,6 +23,14 @@ public class BoxPlacer : MonoBehaviour
 
     bool isMirrored;
 
+
+    private void Start()
+    {
+        Rotate();
+        Rotate();
+        Rotate();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -131,19 +139,19 @@ public class BoxPlacer : MonoBehaviour
                 int z = 0;
                 if((int)hit.point.x % 2 == 0)
                 {
-                    x = (int)hit.point.x - 1;
+                    x = (int)hit.point.x;
                 }
                 else
                 {
-                    x = (int)hit.point.x;
+                    x = (int)hit.point.x + 1;
                 }
                 if((int)hit.point.z % 2 == 0)
                 {
-                    z = (int)hit.point.z + 1;
+                    z = (int)hit.point.z;
                 }
                 else
                 {
-                    z = (int)hit.point.z;
+                    z = (int)hit.point.z + 1;
                 }
                 position.x = x;
                 position.z = z;

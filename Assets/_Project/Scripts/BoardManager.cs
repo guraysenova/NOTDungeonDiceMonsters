@@ -24,43 +24,44 @@ public class BoardManager : MonoBehaviour
         }
 
         transform.GetChild(0).localScale = new Vector3(boardSize.y / 5f , 1f, boardSize.x / 5f);
-        transform.GetChild(0).localPosition = new Vector3(-boardSize.y, 0, boardSize.x);
+        transform.GetChild(0).localPosition = new Vector3(boardSize.x - 1, 0, boardSize.y - 1);
     }
 
     void Start()
     {
         Board();
+        PathFinder.instance.SetGrid(tileData, boardSize);
     }
 
     void Board()
     {
-        for (int j = 0; j < boardSize.y; j++)
+        for (int i = 0; i < boardSize.y; i++)
         {
-            for (int i = 0; i < boardSize.x; i++)
+            for (int j = 0; j < boardSize.x; j++)
             {
                 TileData myTile = new TileData();
                 TwoDCoordinate coordinate = new TwoDCoordinate();
-                coordinate.x = -1 - (j * 2);
-                coordinate.y =  1 + (i * 2);
+                coordinate.x =  (j * 2);
+                coordinate.y =  (i * 2);
                 myTile.coordinates = coordinate;
-                GameObject tile = Instantiate(tilePrefab, new Vector3(-1 - (j * 2), -0.05f, 1 + (i * 2)) , Quaternion.Euler(0f,0f,0f));
+                GameObject tile = Instantiate(tilePrefab, new Vector3((j * 2), -0.05f, (i * 2)) , Quaternion.Euler(0f,0f,0f));
 
-                if (j == 0 || j == boardSize.y - 1)
+                if (i == 0 || i == boardSize.y - 1)
                 {
                     if (boardSize.x % 2 == 1)
                     {
-                        if (i == boardSize.x / 2)
+                        if (j == boardSize.x / 2)
                         {
                             myTile.isConnected = true;
 
-                            if (j == 0)
+                            if (i == 0)
                             {
-                                GameObject playerTile = Instantiate(playerTilePrefab, new Vector3(-1 - ((j - 1) * 2), -0.05f, 1 + (i * 2)), Quaternion.Euler(0f, 0f, 0f));
+                                GameObject playerTile = Instantiate(playerTilePrefab, new Vector3(((j) * 2), -0.05f, ((i - 1) * 2)), Quaternion.Euler(0f, 0f, 0f));
                                 playerTile.transform.SetParent(gameObject.transform);
                             }
-                            if (j == boardSize.y - 1)
+                            if (i == boardSize.y - 1)
                             {
-                                GameObject playerTile = Instantiate(playerTilePrefab, new Vector3(-1 - ((j + 1) * 2), -0.05f, 1 + (i * 2)), Quaternion.Euler(0f, 0f, 0f));
+                                GameObject playerTile = Instantiate(playerTilePrefab, new Vector3(((j) * 2), -0.05f, ((i + 1)* 2)), Quaternion.Euler(0f, 0f, 0f));
                                 playerTile.transform.SetParent(gameObject.transform);
                             }
                         }
@@ -129,46 +130,29 @@ public class BoardManager : MonoBehaviour
 
             foreach (TileData myTile in myTiles)
             {
-                if(myTile.coordinates.x != -1)
-                {
-                    TileData tile = new TileData();
-                    tile.coordinates = new TwoDCoordinate();
+                TileData tile1 = new TileData();
+                tile1.coordinates = new TwoDCoordinate();
+                tile1.coordinates.x = myTile.coordinates.x + 2;
+                tile1.coordinates.y = myTile.coordinates.y;
+                connectedTiles.Add(tile1);
 
-                    tile.coordinates.x = myTile.coordinates.x + 2;
-                    tile.coordinates.y = myTile.coordinates.y;
+                TileData tile2 = new TileData();
+                tile2.coordinates = new TwoDCoordinate();
+                tile2.coordinates.x = myTile.coordinates.x - 2;
+                tile2.coordinates.y = myTile.coordinates.y;
+                connectedTiles.Add(tile2);
 
-                    connectedTiles.Add(tile);
-                }
-                if(myTile.coordinates.x != boardSize.x)
-                {
-                    TileData tile = new TileData();
-                    tile.coordinates = new TwoDCoordinate();
+                TileData tile3 = new TileData();
+                tile3.coordinates = new TwoDCoordinate();
+                tile3.coordinates.x = myTile.coordinates.x;
+                tile3.coordinates.y = myTile.coordinates.y - 2;
+                connectedTiles.Add(tile3);
 
-                    tile.coordinates.x = myTile.coordinates.x - 2;
-                    tile.coordinates.y = myTile.coordinates.y;
-
-                    connectedTiles.Add(tile);
-                }
-                if (myTile.coordinates.y != 1)
-                {
-                    TileData tile = new TileData();
-                    tile.coordinates = new TwoDCoordinate();
-
-                    tile.coordinates.x = myTile.coordinates.x;
-                    tile.coordinates.y = myTile.coordinates.y - 2;
-
-                    connectedTiles.Add(tile);
-                }
-                if (myTile.coordinates.y != boardSize.y)
-                {
-                    TileData tile = new TileData();
-                    tile.coordinates = new TwoDCoordinate();
-
-                    tile.coordinates.x = myTile.coordinates.x;
-                    tile.coordinates.y = myTile.coordinates.y + 2;
-
-                    connectedTiles.Add(tile);
-                }
+                TileData tile4 = new TileData();
+                tile4.coordinates = new TwoDCoordinate();
+                tile4.coordinates.x = myTile.coordinates.x;
+                tile4.coordinates.y = myTile.coordinates.y + 2;
+                connectedTiles.Add(tile4);
             }
 
             foreach (TileData myTile in myTiles)
@@ -195,6 +179,8 @@ public class BoardManager : MonoBehaviour
                     }
                 }
             }
+
+            PathFinder.instance.UpdateGrid(tileData, boardSize);
         }
     }
 
