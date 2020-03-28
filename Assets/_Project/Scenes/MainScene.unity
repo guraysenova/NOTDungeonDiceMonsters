@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -149,6 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ac2b7c92378f8459433a8fb2aff95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  find: 0
+  startPos:
+    x: 0
+    y: 0
+  endPos:
+    x: 0
+    y: 0
 --- !u!4 &181734937
 Transform:
   m_ObjectHideFlags: 0
@@ -188,8 +196,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -337,6 +346,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 56, y: 0, z: 0}
+--- !u!1 &1488788126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488788128}
+  - component: {fileID: 1488788127}
+  m_Layer: 0
+  m_Name: Units
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1488788127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488788126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cc62bf1f0b98549846ea36f437d7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  units:
+  - prefab: {fileID: 842850876015371832, guid: 591ef0f0ee2474846965a6312b8389b3, type: 3}
+    id: Man_Eater_Bug
+  - prefab: {fileID: 3755630652491459600, guid: 6969fef6224490448ba6b73886ef6a8f,
+      type: 3}
+    id: Zera_The_Mant
+--- !u!4 &1488788128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488788126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2841324990899164033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,11 +402,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2841324990833812841, guid: f765f59bbcd01b34dad480671c6024fd,
-        type: 3}
-      propertyPath: m_Name
-      value: BoardManager
-      objectReference: {fileID: 0}
     - target: {fileID: 2841324990833812840, guid: f765f59bbcd01b34dad480671c6024fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,6 +456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841324990833812841, guid: f765f59bbcd01b34dad480671c6024fd,
+        type: 3}
+      propertyPath: m_Name
+      value: BoardManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f765f59bbcd01b34dad480671c6024fd, type: 3}
@@ -475,3 +533,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da9a666d446e2c4b963b977cff23b69, type: 3}
+--- !u!1 &4900734857555408155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8941816940773482338, guid: 9da9a666d446e2c4b963b977cff23b69,
+    type: 3}
+  m_PrefabInstance: {fileID: 4900734857555408154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4900734857555408156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900734857555408155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f899dbfc7006b54a9c7afb3d7351be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 0
+  wannaSummon: 0
+  selectedAgent: {fileID: 0}
+  movePoints: 500

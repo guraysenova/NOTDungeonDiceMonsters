@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PathFinder : MonoBehaviour
@@ -20,7 +21,6 @@ public class PathFinder : MonoBehaviour
     TwoDCoordinate startPos = new TwoDCoordinate();
     [SerializeField]
     TwoDCoordinate endPos = new TwoDCoordinate();
-
     private void Awake()
     {
         if(instance == null)
@@ -31,13 +31,24 @@ public class PathFinder : MonoBehaviour
 
     private void Update()
     {
-        if (find)
+        /*if (find)
         {
             find = false;
             grid[startPos.x / 2, startPos.y / 2].isVisited = 0;
             SetDistance(startPos.x , startPos.y);
             SetPath(endPos.x , endPos.y);
-        }
+        }*/
+    }
+
+    public List<GridNode> GetPath(TwoDCoordinate startPos , TwoDCoordinate endPos)
+    {
+        grid[startPos.x / 2, startPos.y / 2].isVisited = 0;
+        SetDistance(startPos.x, startPos.y);
+        SetPath(endPos.x, endPos.y);
+
+        path.Reverse();
+
+        return path;
     }
 
     public void SetGrid(List<TileData> tileData , TwoDCoordinate boardSize)

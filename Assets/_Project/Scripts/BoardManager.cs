@@ -226,4 +226,16 @@ public class BoardManager : MonoBehaviour
         }
         return myTiles;
     }
+
+    public TileData GetTile(TwoDCoordinate pos)
+    {
+        foreach (TileData tile in tileData)
+        {
+            if(tile.coordinates.x == pos.x && tile.coordinates.y == pos.y)
+            {
+                return tile;
+            }
+        }
+        return null;
+    }
 }
