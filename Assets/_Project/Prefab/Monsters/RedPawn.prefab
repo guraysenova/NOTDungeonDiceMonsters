@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 842850876015371835}
   - component: {fileID: 5448159249932577658}
   m_Layer: 8
-  m_Name: Man_Eater_Bug
+  m_Name: RedPawn
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842850876015371832}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.7031641
@@ -87,7 +87,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!1 &4071722784394001526
 GameObject:

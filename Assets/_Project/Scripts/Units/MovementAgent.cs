@@ -8,6 +8,10 @@ public class MovementAgent : MonoBehaviour
 
     public void GoPath(List<Vector3> path)
     {
-        gameObject.transform.DOPath(path.ToArray(), 10f);
+        if (movement.IsPlaying())
+        {
+            return;
+        }
+        movement = gameObject.transform.DOPath(path.ToArray(), (float)path.Count * 0.5f, PathType.Linear , PathMode.TopDown2D , 10 , Color.red);
     }
 }

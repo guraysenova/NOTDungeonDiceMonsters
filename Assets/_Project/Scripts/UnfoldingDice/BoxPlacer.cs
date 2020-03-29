@@ -187,7 +187,7 @@ public class BoxPlacer : MonoBehaviour
                 Instantiate(mirroredFoldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
                 BoardManager.instance.PlaceBox(mirroredDiceUnfoldData[selectedIndex], gameObject);
             }
-            gameObject.GetComponent<Player>().SummonUnit("Man_Eater_Bug");
+            gameObject.GetComponent<Player>().SummonUnit("RedPawn");
         }
     }
 
