@@ -23,6 +23,9 @@ public class BoxPlacer : MonoBehaviour
 
     bool isMirrored;
 
+    [SerializeField]
+    bool isPlacing;
+
 
     private void Start()
     {
@@ -34,12 +37,27 @@ public class BoxPlacer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckMirrored();
-        CycleSelectedBoxes();
-        CheckRotate();
-        SetPositionOnCursor();
-        PlaceBox();
-        CheckPlaceability();
+        if (isPlacing)
+        {
+            transform.GetChild(0).GetChild(0).gameObject.SetActive(!isMirrored);
+            transform.GetChild(0).GetChild(1).gameObject.SetActive(isMirrored);
+            transform.GetChild(1).GetChild(0).gameObject.SetActive(!isMirrored);
+            transform.GetChild(1).GetChild(1).gameObject.SetActive(isMirrored);
+
+            CheckMirrored();
+            CycleSelectedBoxes();
+            CheckRotate();
+            SetPositionOnCursor();
+            PlaceBox();
+            CheckPlaceability();
+        }
+        else
+        {
+            transform.GetChild(0).GetChild(0).gameObject.SetActive(isPlacing);
+            transform.GetChild(0).GetChild(1).gameObject.SetActive(isPlacing);
+            transform.GetChild(1).GetChild(0).gameObject.SetActive(isPlacing);
+            transform.GetChild(1).GetChild(1).gameObject.SetActive(isPlacing);
+        }
     }
     void CheckMirrored()
     {
