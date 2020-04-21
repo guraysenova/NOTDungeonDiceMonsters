@@ -8,7 +8,7 @@ public class MovementAgent : MonoBehaviour
 
     public void GoPath(List<Vector3> path)
     {
-        if (movement.IsPlaying())
+        if (movement != null && movement.IsPlaying())
         {
             return;
         }
