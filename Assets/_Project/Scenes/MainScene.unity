@@ -5315,6 +5315,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoardManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2841324990833812843, guid: f765f59bbcd01b34dad480671c6024fd,
+        type: 3}
+      propertyPath: tilePrefab
+      value: 
+      objectReference: {fileID: 804550657021191935, guid: fc723a0a6db4f6146a1fef9a0e2a9a17,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f765f59bbcd01b34dad480671c6024fd, type: 3}
 --- !u!4 &2841324990899164034 stripped
