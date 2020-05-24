@@ -37,6 +37,10 @@ public class BoxPlacer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            isPlacing = !isPlacing;
+        }
         if (isPlacing)
         {
             transform.GetChild(0).GetChild(0).gameObject.SetActive(!isMirrored);
@@ -205,7 +209,7 @@ public class BoxPlacer : MonoBehaviour
                 Instantiate(mirroredFoldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
                 BoardManager.instance.PlaceBox(mirroredDiceUnfoldData[selectedIndex], gameObject);
             }
-            gameObject.GetComponent<Player>().SummonUnit("RedPawn");
+            //gameObject.GetComponent<Player>().SummonUnit("RedPawn");
         }
     }
 
