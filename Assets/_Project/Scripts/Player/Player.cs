@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     PlayerEnum player = PlayerEnum.Player1;
 
     [SerializeField]
+    TeamEnum team = TeamEnum.Team1;
+
+    [SerializeField]
     bool wannaSummon;
 
     [SerializeField]
@@ -14,6 +17,30 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     int movePoints = 100;
+
+    public PlayerEnum PlayerVal
+    {
+        get
+        {
+            return player;
+        }
+        set
+        {
+            player = value;
+        }
+    }
+
+    public TeamEnum TeamVal
+    {
+        get
+        {
+            return team;
+        }
+        set
+        {
+            team = value;
+        }
+    }
 
     private void Update()
     {
@@ -111,6 +138,17 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             wannaSummon = !wannaSummon;
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            if(team == TeamEnum.Team1)
+            {
+                team = TeamEnum.Team2;
+            }
+            else if (team == TeamEnum.Team2)
+            {
+                team = TeamEnum.Team1;
+            }
         }
     }
 

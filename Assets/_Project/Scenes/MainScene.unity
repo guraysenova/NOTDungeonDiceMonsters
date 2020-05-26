@@ -8349,6 +8349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
+  team: 0
   wannaSummon: 0
   selectedAgent: {fileID: 0}
   movePoints: 500
@@ -8358,6 +8359,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4900734857555408154}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4900734857555408158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900734857555408155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95eabc6e33904704ea38db0f65b2b592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamDatas:
+  - team: 0
+    topColorOne: {fileID: 2100000, guid: c72d70483c1048542a99c7eadc8d0ef7, type: 2}
+    topColorTwo: {fileID: 2100000, guid: 5fdf5225087ad9e49b8f5ba22d4f06fe, type: 2}
+    bottomColor: {fileID: 2100000, guid: 80591a8c9ee9172408163acc0a1ef44e, type: 2}
+    bottomOuterColor: {fileID: 2100000, guid: e748e226b62c49344aed3cdf2b79237d, type: 2}
+    crestColor: {fileID: 2100000, guid: 2f11e3524602cb04495e5e8fc57474a3, type: 2}
+  - team: 1
+    topColorOne: {fileID: 2100000, guid: c67e993769b98e449aa7231158816d14, type: 2}
+    topColorTwo: {fileID: 2100000, guid: c6fa1032cb64cab4eac6c28e016b0db2, type: 2}
+    bottomColor: {fileID: 2100000, guid: 7be6c1f1a5fc893428d4b38fa96a1b64, type: 2}
+    bottomOuterColor: {fileID: 2100000, guid: 600caab3852028b45a9f88bc4ab0933e, type: 2}
+    crestColor: {fileID: 2100000, guid: 0fa1bfdece0040144a089fa0454178df, type: 2}
 --- !u!1001 &8353613937066120257
 PrefabInstance:
   m_ObjectHideFlags: 0

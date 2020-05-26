@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 1282278153161381393}
   - component: {fileID: 2979477336833178684}
   - component: {fileID: 2979477336833178687}
+  - component: {fileID: 4933473218958090079}
   m_Layer: 0
   m_Name: DiceUnfold3
   m_TagString: Untagged
@@ -416,6 +417,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90ca3f6f800ea734a8d123cbadfb5f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4933473218958090079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2850999528683430914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3892d0323cce28e489d3b3b53f283050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3127368930454968666

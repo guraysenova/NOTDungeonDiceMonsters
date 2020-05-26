@@ -3,7 +3,32 @@ guid: 84c3601d1c4f538479e6528424a65ea1
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DicePieceBottomCrestColor
+    second: {fileID: 2100000, guid: e90a0565ee8c00541a0ba3da60475795, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DicePieceBottomMainColor
+    second: {fileID: 2100000, guid: 679bd9a582b458d40a3947061f7a0bf3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DicePieceBottomOuterRingColor
+    second: {fileID: 2100000, guid: 765e2133d3979634e8f2ad5c1499fadd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DicePieceTopColorOne
+    second: {fileID: 2100000, guid: 0ad87fb88e9ef7848a64ed8675d8dfaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DicePieceTopColorTwo
+    second: {fileID: 2100000, guid: 26522bf4d7bc4ab4ea47b5cc832bc44c, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -31,7 +56,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 50

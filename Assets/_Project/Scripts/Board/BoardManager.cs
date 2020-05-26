@@ -63,11 +63,13 @@ public class BoardManager : MonoBehaviour
                             {
                                 GameObject playerTile = Instantiate(playerTilePrefab, new Vector3(((j) * 2), -0.05f, ((i - 1) * 2)), Quaternion.Euler(0f, 0f, 0f));
                                 playerTile.transform.SetParent(gameObject.transform);
+                                myTile.AddTeam(TeamEnum.Team1);
                             }
                             if (i == boardSize.y - 1)
                             {
                                 GameObject playerTile = Instantiate(playerTilePrefab, new Vector3(((j) * 2), -0.05f, ((i + 1)* 2)), Quaternion.Euler(0f, 0f, 0f));
                                 playerTile.transform.SetParent(gameObject.transform);
+                                myTile.AddTeam(TeamEnum.Team2);
                             }
                         }
                     }
@@ -79,7 +81,7 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    public bool CanPlace(DiceUnfoldData diceUnfoldData , GameObject obj)
+    public bool CanPlace(DiceUnfoldData diceUnfoldData , GameObject obj , TeamEnum team)
     {
         bool canPlace = false;
 
@@ -122,12 +124,27 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
+        if (canPlace)
+        {
+            foreach (TileData tile in tilesToCheck)
+            {
+                if (tile.DoesTeamExist(team))
+                {
+                    canPlace = true;
+                    break;
+                }
+                else
+                {
+                    canPlace = false;
+                }
+            }
+        }
         return canPlace;
     }
 
-    public void PlaceBox(DiceUnfoldData diceUnfoldData, GameObject obj)
+    public void PlaceBox(DiceUnfoldData diceUnfoldData, GameObject obj , TeamEnum team)
     {
-        if(CanPlace(diceUnfoldData, obj))
+        if(CanPlace(diceUnfoldData, obj , team))
         {
             List<TileData> myTiles = GetMyTiles(diceUnfoldData, obj);
 
@@ -168,6 +185,7 @@ public class BoardManager : MonoBehaviour
                     {
                         tile.isFilled = true;
                         tile.isConnected = true;
+                        tile.AddTeam(team);
                         break;
                     }
                 }
@@ -180,6 +198,7 @@ public class BoardManager : MonoBehaviour
                     if (tile.coordinates.x == myTile.coordinates.x && tile.coordinates.y == myTile.coordinates.y)
                     {
                         tile.isConnected = true;
+                        tile.AddTeam(team);
                         break;
                     }
                 }

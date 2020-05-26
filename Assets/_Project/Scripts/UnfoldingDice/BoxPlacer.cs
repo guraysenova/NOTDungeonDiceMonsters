@@ -52,8 +52,8 @@ public class BoxPlacer : MonoBehaviour
             CycleSelectedBoxes();
             CheckRotate();
             SetPositionOnCursor();
-            PlaceBox();
-            CheckPlaceability();
+            PlaceBox(transform.GetComponent<Player>().TeamVal);
+            CheckPlaceability(transform.GetComponent<Player>().TeamVal);
         }
         else
         {
@@ -89,15 +89,15 @@ public class BoxPlacer : MonoBehaviour
         }
     }
 
-    void CheckPlaceability()
+    void CheckPlaceability(TeamEnum team)
     {
         if (!isMirrored)
         {
-            canPlace = BoardManager.instance.CanPlace(diceUnfoldData[selectedIndex], gameObject);
+            canPlace = BoardManager.instance.CanPlace(diceUnfoldData[selectedIndex], gameObject , team);
         }
         else
         {
-            canPlace = BoardManager.instance.CanPlace(mirroredDiceUnfoldData[selectedIndex], gameObject);
+            canPlace = BoardManager.instance.CanPlace(mirroredDiceUnfoldData[selectedIndex], gameObject, team);
         }
         transform.GetChild(0).gameObject.SetActive(canPlace);
         transform.GetChild(1).gameObject.SetActive(!canPlace);
@@ -195,19 +195,21 @@ public class BoxPlacer : MonoBehaviour
         }
     }
 
-    void PlaceBox()
+    void PlaceBox(TeamEnum team)
     {
         if (Input.GetMouseButtonDown(0) && canPlace)
         {
             if (!isMirrored)
             {
-                Instantiate(foldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
-                BoardManager.instance.PlaceBox(diceUnfoldData[selectedIndex], gameObject);
+                GameObject box = Instantiate(foldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
+                box.GetComponent<Box>().SetTeam(team);
+                BoardManager.instance.PlaceBox(diceUnfoldData[selectedIndex], gameObject , team);
             }
             else
             {
-                Instantiate(mirroredFoldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
-                BoardManager.instance.PlaceBox(mirroredDiceUnfoldData[selectedIndex], gameObject);
+                GameObject box = Instantiate(mirroredFoldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
+                box.GetComponent<Box>().SetTeam(team);
+                BoardManager.instance.PlaceBox(mirroredDiceUnfoldData[selectedIndex], gameObject , team);
             }
             //gameObject.GetComponent<Player>().SummonUnit("RedPawn");
         }

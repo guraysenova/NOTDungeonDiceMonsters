@@ -10,4 +10,19 @@ public class TileData
     public bool isFilled;
 
     public bool isConnected;
+
+    public List<TeamEnum> teams = new List<TeamEnum>();
+
+    public void AddTeam(TeamEnum team)
+    {
+        if (!DoesTeamExist(team))
+        {
+            teams.Add(team);
+        }
+    }
+
+    public bool DoesTeamExist(TeamEnum teamVal)
+    {
+        return teams.Contains(teamVal);
+    }
 }

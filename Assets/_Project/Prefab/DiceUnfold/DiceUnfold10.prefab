@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 5090562137213080837}
   - component: {fileID: 9094989483090820904}
   - component: {fileID: 9094989483090820907}
+  - component: {fileID: 5376875642230382794}
   m_Layer: 0
   m_Name: DiceUnfold10
   m_TagString: Untagged
@@ -977,6 +978,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90ca3f6f800ea734a8d123cbadfb5f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5376875642230382794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141969993059624726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3892d0323cce28e489d3b3b53f283050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8757358803142983035
