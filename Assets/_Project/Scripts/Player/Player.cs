@@ -63,31 +63,6 @@ public class Player : MonoBehaviour
             {
                 selectedAgent = null;
             }
-
-            /*if (wannaSummon)
-            {
-
-                RaycastHit hit2;
-                Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray2, out hit2))
-                {
-                    if (hit2.transform.gameObject.CompareTag("Board"))
-                    {
-                        TwoDCoordinate endPos = new TwoDCoordinate();
-
-                        endPos.x = Mathf.RoundToInt(gameObject.transform.position.x);
-                        endPos.y = Mathf.RoundToInt(gameObject.transform.position.z);
-
-
-                        if (!BoardManager.instance.GetTile(endPos).isFilled)
-                        {
-                            selectedAgent = null;
-                            return;
-                        }
-                        SummonUnit("Man_Eater_Bug");
-                    }
-                }
-            }*/
         }
         if (Input.GetMouseButtonDown(1))
         {

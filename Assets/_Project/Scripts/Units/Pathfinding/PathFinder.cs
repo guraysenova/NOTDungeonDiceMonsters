@@ -1,6 +1,37 @@
-﻿using System.Collections;
+﻿/*
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+/   TO-DO : Add Portal Logic
+*/
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PathFinder : MonoBehaviour
@@ -15,29 +46,12 @@ public class PathFinder : MonoBehaviour
     [SerializeField]
     List<GridNode> path = new List<GridNode>();
 
-    [SerializeField]
-    bool find;
-    [SerializeField]
-    TwoDCoordinate startPos = new TwoDCoordinate();
-    [SerializeField]
-    TwoDCoordinate endPos = new TwoDCoordinate();
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
         }
-    }
-
-    private void Update()
-    {
-        /*if (find)
-        {
-            find = false;
-            grid[startPos.x / 2, startPos.y / 2].isVisited = 0;
-            SetDistance(startPos.x , startPos.y);
-            SetPath(endPos.x , endPos.y);
-        }*/
     }
 
     public List<GridNode> GetPath(TwoDCoordinate startPos , TwoDCoordinate endPos)
@@ -101,6 +115,37 @@ public class PathFinder : MonoBehaviour
         else
         {
             Debug.Log("no path");
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
+            // TO-DO : SHOW UI ERROR
             return;
         }
 

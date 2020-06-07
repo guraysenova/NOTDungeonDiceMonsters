@@ -10,6 +10,11 @@ public class Dice : MonoBehaviour
     [SerializeField]
     GameObject currentSide;
 
+    [SerializeField]
+    Color highlightColor;
+
+    bool rolled;
+
     private void Start()
     {
         currentSide = sides[0];
@@ -19,10 +24,15 @@ public class Dice : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 15);
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
             //gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.up * 5;
         }
         CheckForSide();
+        if(!rolled && gameObject.GetComponent<Rigidbody>().velocity.magnitude <= 0.02f && gameObject.GetComponent<Rigidbody>().angularVelocity.magnitude <= 0.02f)
+        {
+            rolled = true;
+            Debug.Log(currentSide.name);
+        }
     }
 
     void CheckForSide()
@@ -41,6 +51,6 @@ public class Dice : MonoBehaviour
                 sides[i].GetComponent<DiceSide>().UnHighLight();
             }
         }
-        currentSide.GetComponent<DiceSide>().Highlight();
+        currentSide.GetComponent<DiceSide>().Highlight(highlightColor);
     }
 }

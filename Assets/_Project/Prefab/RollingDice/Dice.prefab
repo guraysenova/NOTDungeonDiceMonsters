@@ -599,7 +599,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crestType: 5
   crestTier: 1
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4122238194336163927
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crestType: 2
   crestTier: 1
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4122238194457067156
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crestType: 3
   crestTier: 1
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4122238194479210902
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +739,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crestType: 4
   crestTier: 1
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4122238194535982990
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crestType: 0
   crestTier: 1
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4122238194859978908
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +815,7 @@ Transform:
   m_GameObject: {fileID: 4122238194859978908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.25, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
   m_Children:
   - {fileID: 4122238194535982991}
   - {fileID: 4122238194336163928}
@@ -911,6 +906,7 @@ MonoBehaviour:
   - {fileID: 4122238195361963048}
   - {fileID: 4122238194479210902}
   currentSide: {fileID: 0}
+  highlightColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!54 &4122238194594731653
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -973,7 +969,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crestType: 1
   crestTier: 1
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4320684070342780519
 GameObject:
   m_ObjectHideFlags: 0

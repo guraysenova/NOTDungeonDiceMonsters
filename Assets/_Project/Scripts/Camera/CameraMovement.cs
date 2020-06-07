@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,7 +14,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     float cameraMinAngle, cameraMaxAngle;
 
-    Vector3 movementVector;
+    Vector3 movementVector , midMouseMovementVector;
+
     Vector3 rotationVector;
 
     float shiftVal = 0f;
@@ -21,18 +23,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     GameObject cameraRotationObj;
 
-    private void Start()
-    {
-        //transform.rotation = Quaternion.Euler( transform.)
-        //Set Cursor to not be visible
-        /*UnityEngine.Cursor.visible = false;
-        UnityEngine.Cursor.lockState = CursorLockMode.Confined;*/
-    }
-
     void Update()
     {
         movementVector = Vector3.zero;
-        //rotationVector = Vector3.zero;
 
         RotateCamera();
         MoveForward();
@@ -41,9 +34,53 @@ public class CameraMovement : MonoBehaviour
         MoveRight();
         Zoom();
         Shift();
-        //MiddleMouse();
+        MiddleMouse();
         Move();
-        //Rotate();
+    }
+
+    private void MiddleMouse()
+    {
+        if (Input.GetMouseButtonDown(2))
+        {
+            midMouseMovementVector = Vector3.zero;
+
+            midStartPos = new Vector3();
+            midEndPos = new Vector3();
+
+            midStartPos = Input.mousePosition;
+            midEndPos = Input.mousePosition;
+        }
+        if (Input.GetMouseButton(2))
+        {
+            midEndPos = Input.mousePosition;
+
+            midMouseMovementVector = midEndPos - midStartPos;
+
+            midStartPos = Input.mousePosition;
+            midEndPos = Input.mousePosition;
+
+            if (midMouseMovementVector.x >= 0.05f)
+            {
+                movementVector += cameraRotationObj.transform.right;
+            }
+            if (midMouseMovementVector.x <= -0.05f)
+            {
+                movementVector -= cameraRotationObj.transform.right;
+            }
+            if (midMouseMovementVector.y >= 0.05f)
+            {
+                movementVector += cameraRotationObj.transform.forward;
+            }
+            if (midMouseMovementVector.y <= -0.05f)
+            {
+                movementVector -= cameraRotationObj.transform.forward;
+            }
+        }
+        if (Input.GetMouseButtonUp(2))
+        {
+            midStartPos = new Vector3();
+            midEndPos = new Vector3();
+        }
     }
 
     void Shift()
@@ -76,9 +113,11 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-
     Vector3 startPos = new Vector3();
     Vector3 endPos = new Vector3();
+
+    Vector3 midStartPos = new Vector3();
+    Vector3 midEndPos = new Vector3();
 
     void PressDown()
     {
@@ -97,7 +136,7 @@ public class CameraMovement : MonoBehaviour
     {
         startPos = new Vector3();
         endPos = new Vector3();
-        Input.mousePosition.Set(0, 0, 0);
+        //Input.mousePosition.Set(0, 0, 0);
     }
 
     void SetStartPos()
@@ -178,15 +217,8 @@ public class CameraMovement : MonoBehaviour
     {
         float valX = (-rotationVector.y * rotationSpeed * Time.deltaTime) + transform.localEulerAngles.x;
         valX = MyMathf.ClampAngle(valX, cameraMinAngle, cameraMaxAngle);
-        //transform.localRotation = Quaternion.Euler(valX, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
-
         float valY = (rotationVector.x * rotationSpeed * Time.deltaTime) + transform.localEulerAngles.y;
-        //valX = MyMathf.ClampAngle(valX, -180, 180);
-        //transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, valY, transform.localRotation.eulerAngles.z);
         transform.localRotation = Quaternion.Euler(valX, valY, 0);
         cameraRotationObj.transform.rotation = Quaternion.Euler(0, valY, 0);
-
-        //transform.Rotate(new Vector3(valX, valY, 0), Space.Self);
-        //transform.rotation = Quaternion.Euler(MyMathf.ClampAngle(transform.rotation.eulerAngles.x, cameraMinAngle, cameraMaxAngle) , transform.rotation.eulerAngles.y , transform.rotation.eulerAngles.z);
     }
 }

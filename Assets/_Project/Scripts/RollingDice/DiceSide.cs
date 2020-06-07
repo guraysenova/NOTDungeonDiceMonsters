@@ -1,22 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DiceSide : MonoBehaviour
 {
     [SerializeField]
     CrestType crestType = new CrestType();
 
+    Color mainColor = new Color();
+
     [SerializeField , Range(1,4 , order = 0)]
     int crestTier;
 
-    [SerializeField]
-    Color highlightColor = new Color();
-    public void Highlight()
+    private void Start()
+    {
+        mainColor = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_Color");
+    }
+
+    public void Highlight(Color highlightColor)
     {
         foreach (Transform item in gameObject.transform)
         {
-            item.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", highlightColor);
+            item.GetComponent<MeshRenderer>().material.SetColor("_Color", highlightColor);
         }
     }
 
@@ -24,7 +27,7 @@ public class DiceSide : MonoBehaviour
     {
         foreach (Transform item in gameObject.transform)
         {
-            item.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black);
+            item.GetComponent<MeshRenderer>().material.SetColor("_Color", mainColor);
         }
     }
 }
