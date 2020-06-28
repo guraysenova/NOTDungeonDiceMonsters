@@ -31,7 +31,7 @@ public class Dice : MonoBehaviour
         if(!rolled && gameObject.GetComponent<Rigidbody>().velocity.magnitude <= 0.02f && gameObject.GetComponent<Rigidbody>().angularVelocity.magnitude <= 0.02f)
         {
             rolled = true;
-            Debug.Log(currentSide.name);
+            //Debug.Log(currentSide.name);
         }
     }
 
