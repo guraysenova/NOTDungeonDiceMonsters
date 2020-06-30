@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ public class ClientSend : MonoBehaviour
 
     public static void WelcomeReceived()
     {
-        using (Packet packet = new Packet((int)ClientPackets.welcomeReceived))
+        using (Packet packet = new Packet((int)ClientPackets.WelcomeReceived))
         {
             packet.Write(Client.instance.myId);
             packet.Write("Guray");

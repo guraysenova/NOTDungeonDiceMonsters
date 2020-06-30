@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Net;
@@ -175,7 +175,7 @@ public class Client : MonoBehaviour
     {
         packetHandlers = new Dictionary<int, PacketHandler>()
         {
-            {(int)ServerPackets.welcome , ClientHandle.Welcome }
+            {(int)ServerPackets.Welcome , ClientHandle.Welcome }
         };
         //Debug.Log("Initialized packets");
     }

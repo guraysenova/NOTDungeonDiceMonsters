@@ -1,17 +1,17 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 /// <summary>Sent from server to client.</summary>
 public enum ServerPackets
 {
-    welcome = 1
+    Welcome = 1
 }
 
 /// <summary>Sent from client to server.</summary>
 public enum ClientPackets
 {
-    welcomeReceived = 1
+    WelcomeReceived = 1
 }
 
 public class Packet : IDisposable
@@ -23,7 +23,7 @@ public class Packet : IDisposable
     /// <summary>Creates a new empty packet (without an ID).</summary>
     public Packet()
     {
-        buffer = new List<byte>(); // Intitialize buffer
+        buffer = new List<byte>(); // Initialize buffer
         readPos = 0; // Set readPos to 0
     }
 
