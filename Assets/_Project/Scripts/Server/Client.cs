@@ -16,6 +16,8 @@ public class Client : MonoBehaviour
     public int myId = 0;
     public TCP tcp;
 
+    private bool isConnected = false;
+
     private delegate void PacketHandler(Packet packet);
     private static Dictionary<int, PacketHandler> packetHandlers;
 
@@ -31,16 +33,27 @@ public class Client : MonoBehaviour
         }
     }
 
+    internal void SetIpPort(string ipAdress, int portVal)
+    {
+        ip = ipAdress;
+        port = portVal;
+        Disconnect();
+        ConnectToServer();
+    }
 
     private void Start()
     {
-        tcp = new TCP();
         ConnectToServer();
     }
 
     public void ConnectToServer()
     {
         InitializeClientData();
+
+        isConnected = true;
+
+        tcp = new TCP();
+
         tcp.Connect();
     }
 
@@ -101,15 +114,12 @@ public class Client : MonoBehaviour
                 int byteLength = stream.EndRead(result);
                 if (byteLength <= 0)
                 {
-                    // TODO: Disconnect client.
-
+                    instance.Disconnect();
                     return;
                 }
 
                 byte[] data = new byte[byteLength];
                 Array.Copy(receiveBuffer, data, byteLength);
-
-                // TODO: Handle data.
 
                 receivedData.Reset(HandleData(data));
 
@@ -118,9 +128,18 @@ public class Client : MonoBehaviour
             catch (Exception exception)
             {
 
-                // TODO: Disconnect client.
+                Disconnect();
 
             }
+        }
+
+        private void Disconnect()
+        {
+            instance.Disconnect();
+            stream = null;
+            receivedData = null;
+            receiveBuffer = null;
+            socket = null;
         }
 
         private bool HandleData(byte[] data)
@@ -175,9 +194,25 @@ public class Client : MonoBehaviour
     {
         packetHandlers = new Dictionary<int, PacketHandler>()
         {
-            {(int)ServerPackets.Welcome , ClientHandle.Welcome }
+            {(int)ServerPackets.Welcome , ClientHandle.Welcome },
+            {(int)ServerPackets.Token , ClientHandle.Token }
         };
         //Debug.Log("Initialized packets");
     }
 
+    private void Disconnect()
+    {
+        if (isConnected)
+        {
+            isConnected = false;
+            tcp.socket.Close();
+
+            Debug.Log("Disconnected");
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        Disconnect();
+    }
 }

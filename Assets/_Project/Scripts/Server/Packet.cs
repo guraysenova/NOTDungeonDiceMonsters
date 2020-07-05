@@ -5,13 +5,15 @@ using System.Text;
 /// <summary>Sent from server to client.</summary>
 public enum ServerPackets
 {
-    Welcome = 1
+    Welcome = 1,
+    Token = 2
 }
 
 /// <summary>Sent from client to server.</summary>
 public enum ClientPackets
 {
-    WelcomeReceived = 1
+    WelcomeReceived = 1,
+    TokenReceived = 2
 }
 
 public class Packet : IDisposable
