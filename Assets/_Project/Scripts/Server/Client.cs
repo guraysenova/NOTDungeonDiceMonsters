@@ -16,6 +16,8 @@ public class Client : MonoBehaviour
     public int myId = 0;
     public TCP tcp;
 
+    public static string token = "";
+
     private bool isConnected = false;
 
     private delegate void PacketHandler(Packet packet);
@@ -195,7 +197,8 @@ public class Client : MonoBehaviour
         packetHandlers = new Dictionary<int, PacketHandler>()
         {
             {(int)ServerPackets.Welcome , ClientHandle.Welcome },
-            {(int)ServerPackets.Token , ClientHandle.Token }
+            {(int)ServerPackets.Token , ClientHandle.Token },
+            {(int)ServerPackets.TokenRequest , ClientHandle.TokenRequest }
         };
         //Debug.Log("Initialized packets");
     }

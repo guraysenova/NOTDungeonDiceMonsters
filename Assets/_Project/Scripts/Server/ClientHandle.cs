@@ -21,10 +21,17 @@ public class ClientHandle : MonoBehaviour
         string ipAdress = packet.ReadString();
         int port = packet.ReadInt();
 
+        Client.token = token;
         Debug.Log("Token : " + token);
         Debug.Log("IP : " + ipAdress);
         Debug.Log("Port : " + port.ToString());
 
         Client.instance.SetIpPort(ipAdress , port);
+    }
+
+    public static void TokenRequest(Packet packet)
+    {
+        Debug.Log(packet.ReadString());
+        ClientSend.Token("Guray" , Client.token);
     }
 }

@@ -20,4 +20,16 @@ public class ClientSend : MonoBehaviour
             SendTCPData(packet);
         }
     }
+
+    public static void Token(string username , string token)
+    {
+        using (Packet packet = new Packet((int)ClientPackets.Token))
+        {
+            packet.Write(Client.instance.myId);
+            packet.Write("Guray");
+            packet.Write(token);
+
+            SendTCPData(packet);
+        }
+    }
 }

@@ -6,14 +6,16 @@ using System.Text;
 public enum ServerPackets
 {
     Welcome = 1,
-    Token = 2
+    Token = 2,
+    TokenRequest = 3
 }
 
 /// <summary>Sent from client to server.</summary>
 public enum ClientPackets
 {
     WelcomeReceived = 1,
-    TokenReceived = 2
+    TokenReceived = 2,
+    Token = 3
 }
 
 public class Packet : IDisposable
