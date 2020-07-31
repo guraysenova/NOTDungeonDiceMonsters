@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 7069283261177022644}
   - component: {fileID: 1582943364360120207}
   - component: {fileID: 1139959925}
+  - component: {fileID: 5743937505064906342}
   m_Layer: 5
   m_Name: LobbyRoomPrefab
   m_TagString: Untagged
@@ -535,6 +536,18 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &5743937505064906342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069283261177022646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a105de67a9c7b44baba3d4a277eee18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7069283261351913478
 GameObject:
   m_ObjectHideFlags: 0
