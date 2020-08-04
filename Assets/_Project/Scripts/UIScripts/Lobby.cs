@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class Lobby : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static Lobby instance;
+
+    List<LobbyRoom> rooms = new List<LobbyRoom>();
+
+    [SerializeField]
+    GameObject content;
+
+    [SerializeField]
+    GameObject UIRoomPrefab;
+
+    private void Awake()
     {
-        
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Refresh()
     {
-        
+        rooms.Clear();
+    }
+
+    public void AddRoom(string roomUUID , string )
+    {
+
     }
 }

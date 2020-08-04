@@ -34,4 +34,9 @@ public class ClientHandle : MonoBehaviour
         Debug.Log(packet.ReadString());
         ClientSend.Token("Guray" , Client.token);
     }
+
+    public static void LobbyRoom(Packet packet)
+    {
+        // handle room
+    }
 }
