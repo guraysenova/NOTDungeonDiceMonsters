@@ -24,11 +24,18 @@ public class Lobby : MonoBehaviour
 
     public void Refresh()
     {
+        foreach (var val in rooms)
+        {
+            Destroy(val.gameObject);
+        }
         rooms.Clear();
+
+        ClientSend.LobbyRoomRequest();
     }
 
-    public void AddRoom(string roomUUID , string )
+    public void AddRoom(string roomUUID , string roomName, int playerCount , int gameTypeIndex)
     {
-
+        GameObject room = Instantiate(UIRoomPrefab , content.transform);
+        room.GetComponent<LobbyRoom>().SetData(roomName, playerCount, gameTypeIndex, roomUUID);
     }
 }

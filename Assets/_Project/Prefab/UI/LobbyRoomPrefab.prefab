@@ -548,6 +548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a105de67a9c7b44baba3d4a277eee18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomName: {fileID: 7069283260408359355}
+  playerCountText: {fileID: 7069283259894323212}
+  gameTypeText: {fileID: 7069283261351913476}
 --- !u!1 &7069283261351913478
 GameObject:
   m_ObjectHideFlags: 0

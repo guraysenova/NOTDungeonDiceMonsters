@@ -32,4 +32,12 @@ public class ClientSend : MonoBehaviour
             SendTCPData(packet);
         }
     }
+
+    public static void LobbyRoomRequest()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.LobbyRoomRequest))
+        {
+            SendTCPData(packet);
+        }
+    }
 }

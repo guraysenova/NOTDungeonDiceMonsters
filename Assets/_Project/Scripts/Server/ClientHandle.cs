@@ -37,6 +37,11 @@ public class ClientHandle : MonoBehaviour
 
     public static void LobbyRoom(Packet packet)
     {
-        // handle room
+        string roomUUID = packet.ReadString();
+        string roomName = packet.ReadString();
+        int playerCount = packet.ReadInt();
+        int gameTypeIndex = packet.ReadInt();
+
+        Lobby.instance.AddRoom(roomUUID, roomName, playerCount, gameTypeIndex);
     }
 }
