@@ -37,5 +37,6 @@ public class Lobby : MonoBehaviour
     {
         GameObject room = Instantiate(UIRoomPrefab , content.transform);
         room.GetComponent<LobbyRoom>().SetData(roomName, playerCount, gameTypeIndex, roomUUID);
+        rooms.Add(room.GetComponent<LobbyRoom>());
     }
 }
