@@ -439,7 +439,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1319915482}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &140012982
 MonoBehaviour:
@@ -829,7 +829,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1319915482}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197744683
 GameObject:
@@ -4902,6 +4902,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6004585443653782610}
   - {fileID: 2046504011}
   - {fileID: 2841324990899164034}
   - {fileID: 4900734857555408157}
@@ -5238,7 +5239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1319915482}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1354695672
 MonoBehaviour:
@@ -5718,7 +5719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1319915482}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559439995
 GameObject:
@@ -7862,7 +7863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1319915482}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051996772
 GameObject:
@@ -13145,6 +13146,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &998960317046338087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6004585443653782610}
+  - component: {fileID: 8728953152512838305}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &1125745865865431939
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17743,7 +17761,7 @@ PrefabInstance:
     - target: {fileID: 2841324990833812840, guid: f765f59bbcd01b34dad480671c6024fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2841324990833812840, guid: f765f59bbcd01b34dad480671c6024fd,
         type: 3}
@@ -23695,7 +23713,7 @@ PrefabInstance:
     - target: {fileID: 8941816940773482339, guid: 9da9a666d446e2c4b963b977cff23b69,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8941816940773482339, guid: 9da9a666d446e2c4b963b977cff23b69,
         type: 3}
@@ -23818,6 +23836,20 @@ MonoBehaviour:
     bottomColor: {fileID: 2100000, guid: 7be6c1f1a5fc893428d4b38fa96a1b64, type: 2}
     bottomOuterColor: {fileID: 2100000, guid: 600caab3852028b45a9f88bc4ab0933e, type: 2}
     crestColor: {fileID: 2100000, guid: 0fa1bfdece0040144a089fa0454178df, type: 2}
+--- !u!4 &6004585443653782610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998960317046338087}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1319915482}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7908544011717027147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23887,3 +23919,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a1c6a28d8b0cd4db760638df62f3e7, type: 3}
+--- !u!114 &8728953152512838305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998960317046338087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c803c100a6869c4389fabd7c8e22745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerState:
+    lastLevel: 0
+    eventSent: 0
+    isAdRemoved: 0
+    isConsentGiven: 0
+    shownReviewUs: 0
+    highestScore: 0
+    currentScore: 0
+    gold: 0
+    gem: 0
+    uuid: 
+  settingsState:
+    isSoundOn: 0
+    isVibrationOn: 0

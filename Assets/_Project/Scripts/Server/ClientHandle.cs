@@ -31,7 +31,7 @@ public class ClientHandle : MonoBehaviour
 
     public static void TokenRequest(Packet packet)
     {
-        Debug.Log(packet.ReadString());
+        SaveManager.Instance.playerState.UUID = packet.ReadString();
         ClientSend.Token("Guray" , Client.token);
     }
 
