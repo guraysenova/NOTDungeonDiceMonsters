@@ -27,6 +27,7 @@ public class ClientSend : MonoBehaviour
         {
             packet.Write(Client.instance.myId);
             packet.Write(username);
+            packet.Write(SaveManager.Instance.playerState.TokenUUID);
             packet.Write(token);
 
             SendTCPData(packet);

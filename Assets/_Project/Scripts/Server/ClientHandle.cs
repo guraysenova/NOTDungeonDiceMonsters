@@ -30,11 +30,13 @@ public class ClientHandle : MonoBehaviour
         string token = packet.ReadString();
         string ipAdress = packet.ReadString();
         int port = packet.ReadInt();
+        SaveManager.Instance.playerState.TokenUUID = packet.ReadString();
 
         Client.token = token;
         Debug.Log("Token : " + token);
         Debug.Log("IP : " + ipAdress);
         Debug.Log("Port : " + port.ToString());
+
 
         Client.instance.SetIpPort(ipAdress , port);
     }

@@ -14,7 +14,7 @@ public class PlayerSaveState
     private int highestScore , currentScore , gold , gem;
 
     [UnityEngine.SerializeField]
-    private string uuid , userName;
+    private string uuid , tokenUUID , userName;
 
     public PlayerSaveState()
     {
@@ -31,6 +31,7 @@ public class PlayerSaveState
         gem = 0;
         //////////////////////////
         uuid = null;
+        tokenUUID = null;
         userName = null;
     }
 
@@ -161,6 +162,19 @@ public class PlayerSaveState
         get
         {
             return uuid;
+        }
+    }
+
+    public string TokenUUID
+    {
+        set
+        {
+            tokenUUID = value;
+            SaveManager.Instance.Save();
+        }
+        get
+        {
+            return tokenUUID;
         }
     }
 
