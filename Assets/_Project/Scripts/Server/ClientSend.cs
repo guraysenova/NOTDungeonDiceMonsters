@@ -70,4 +70,12 @@ public class ClientSend : MonoBehaviour
             SendTCPData(packet);
         }
     }
+
+    public static void ExitRoom()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.ExitRoom))
+        {
+            SendTCPData(packet);
+        }
+    }
 }

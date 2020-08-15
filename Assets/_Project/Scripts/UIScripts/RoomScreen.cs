@@ -55,4 +55,9 @@ public class RoomScreen : MonoBehaviour
     {
         ClientSend.ToggleReady();
     }
+
+    public void ExitRoom()
+    {
+        ClientSend.ExitRoom();
+    }
 }
