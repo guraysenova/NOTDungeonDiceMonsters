@@ -52,4 +52,22 @@ public class ClientSend : MonoBehaviour
             SendTCPData(packet);
         }
     }
+
+    public static void LoginRoom(string roomUUID)
+    {
+        using (Packet packet = new Packet((int)ClientPackets.LoginRoom))
+        {
+            packet.Write(roomUUID);
+
+            SendTCPData(packet);
+        }
+    }
+
+    public static void ToggleReady()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.ToggleReady))
+        {
+            SendTCPData(packet);
+        }
+    }
 }

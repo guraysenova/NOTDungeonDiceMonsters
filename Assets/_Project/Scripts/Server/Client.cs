@@ -195,7 +195,8 @@ public class Client : MonoBehaviour
             {(int)ServerPackets.Token , ClientHandle.Token },
             {(int)ServerPackets.TokenRequest , ClientHandle.TokenRequest },
             {(int)ServerPackets.LobbyRoom , ClientHandle.LobbyRoom },
-            {(int)ServerPackets.ConnectedToLobby , ClientHandle.ConnectedToLobby }
+            {(int)ServerPackets.ConnectedToLobby , ClientHandle.ConnectedToLobby },
+            {(int)ServerPackets.RoomData , ClientHandle.RoomData }
         };
         //Debug.Log("Initialized packets");
     }

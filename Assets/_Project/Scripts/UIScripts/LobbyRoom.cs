@@ -24,7 +24,7 @@ public class LobbyRoom : MonoBehaviour
 
     public void JoinRoom()
     {
-
+        ClientSend.LoginRoom(UUID);
     }
 
     public string RoomUUID
@@ -56,6 +56,19 @@ public class LobbyRoom : MonoBehaviour
         {
             return (int)gameType;
         }
+    }
+}
+
+[System.Serializable]
+public class PlayerData
+{
+    public string playerName;
+    public bool isReady;
+
+    public PlayerData(string nameVal , bool readyVal)
+    {
+        playerName = nameVal;
+        isReady = readyVal;
     }
 }
 

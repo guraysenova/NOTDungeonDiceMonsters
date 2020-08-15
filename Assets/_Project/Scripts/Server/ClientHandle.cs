@@ -56,4 +56,19 @@ public class ClientHandle : MonoBehaviour
 
         Lobby.instance.AddRoom(roomUUID, roomName, playerCount, gameTypeIndex);
     }
+
+    public static void RoomData(Packet packet)
+    {
+        string roomName = packet.ReadString();
+        int playerCount  = packet.ReadInt();
+        List<PlayerData> players = new List<PlayerData>();
+        for (int i = 0; i < playerCount; i++)
+        {
+            string playerName = packet.ReadString();
+            bool isReady = packet.ReadBool();
+            players.Add(new PlayerData(playerName, isReady));
+        }
+        RoomScreen.instance.SetRoomData(roomName, players);
+        UIManager.instance.OpenRoomScreen();
+    }
 }
