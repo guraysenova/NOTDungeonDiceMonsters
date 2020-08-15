@@ -8,7 +8,8 @@ public enum ServerPackets
     Welcome = 1,
     Token = 2,
     TokenRequest = 3,
-    LobbyRoom = 4
+    LobbyRoom = 4,
+    ConnectedToLobby = 5
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -17,7 +18,8 @@ public enum ClientPackets
     WelcomeReceived = 1,
     TokenReceived = 2,
     Token = 3,
-    LobbyRoomRequest = 4
+    LobbyRoomRequest = 4,
+    CreateRoom = 5
 }
 
 public class Packet : IDisposable

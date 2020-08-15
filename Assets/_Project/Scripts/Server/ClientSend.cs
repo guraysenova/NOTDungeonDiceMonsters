@@ -15,7 +15,7 @@ public class ClientSend : MonoBehaviour
         using (Packet packet = new Packet((int)ClientPackets.WelcomeReceived))
         {
             packet.Write(Client.instance.myId);
-            packet.Write("Guray");
+            packet.Write(SaveManager.Instance.playerState.UserName);
 
             SendTCPData(packet);
         }
@@ -26,7 +26,7 @@ public class ClientSend : MonoBehaviour
         using (Packet packet = new Packet((int)ClientPackets.Token))
         {
             packet.Write(Client.instance.myId);
-            packet.Write("Guray");
+            packet.Write(username);
             packet.Write(token);
 
             SendTCPData(packet);
@@ -37,6 +37,17 @@ public class ClientSend : MonoBehaviour
     {
         using (Packet packet = new Packet((int)ClientPackets.LobbyRoomRequest))
         {
+            SendTCPData(packet);
+        }
+    }
+
+    public static void CreateRoom(string roomName)
+    {
+        using (Packet packet = new Packet((int)ClientPackets.CreateRoom))
+        {
+            packet.Write(SaveManager.Instance.playerState.UUID);
+            packet.Write(roomName);
+
             SendTCPData(packet);
         }
     }

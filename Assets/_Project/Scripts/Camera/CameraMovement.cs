@@ -23,19 +23,37 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     GameObject cameraRotationObj;
 
+    [SerializeField]
+    bool canMove = false;
+
+    public bool CanMove
+    {
+        get
+        {
+            return canMove;
+        }
+        set
+        {
+            canMove = value;
+        }
+    }
+
     void Update()
     {
-        movementVector = Vector3.zero;
+        if (canMove)
+        {
+            movementVector = Vector3.zero;
 
-        RotateCamera();
-        MoveForward();
-        MoveBackward();
-        MoveLeft();
-        MoveRight();
-        Zoom();
-        Shift();
-        MiddleMouse();
-        Move();
+            RotateCamera();
+            MoveForward();
+            MoveBackward();
+            MoveLeft();
+            MoveRight();
+            Zoom();
+            Shift();
+            MiddleMouse();
+            Move();
+        }
     }
 
     private void MiddleMouse()

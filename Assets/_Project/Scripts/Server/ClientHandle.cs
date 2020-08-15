@@ -15,6 +15,16 @@ public class ClientHandle : MonoBehaviour
         ClientSend.WelcomeReceived();
     }
 
+    public static void ConnectedToLobby(Packet packet)
+    {
+        UIManager.instance.OpenLobbyScreen();
+    }
+
+    public static void ConnectedToMatch(Packet packet)
+    {
+        // open game screen set up
+    }
+
     public static void Token(Packet packet)
     {
         string token = packet.ReadString();
@@ -32,7 +42,7 @@ public class ClientHandle : MonoBehaviour
     public static void TokenRequest(Packet packet)
     {
         SaveManager.Instance.playerState.UUID = packet.ReadString();
-        ClientSend.Token("Guray" , Client.token);
+        ClientSend.Token(SaveManager.Instance.playerState.UserName, Client.token);
     }
 
     public static void LobbyRoom(Packet packet)

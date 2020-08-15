@@ -43,11 +43,6 @@ public class Client : MonoBehaviour
         ConnectToServer();
     }
 
-    private void Start()
-    {
-        ConnectToServer();
-    }
-
     public void ConnectToServer()
     {
         InitializeClientData();
@@ -199,7 +194,8 @@ public class Client : MonoBehaviour
             {(int)ServerPackets.Welcome , ClientHandle.Welcome },
             {(int)ServerPackets.Token , ClientHandle.Token },
             {(int)ServerPackets.TokenRequest , ClientHandle.TokenRequest },
-            {(int)ServerPackets.LobbyRoom , ClientHandle.LobbyRoom }
+            {(int)ServerPackets.LobbyRoom , ClientHandle.LobbyRoom },
+            {(int)ServerPackets.ConnectedToLobby , ClientHandle.ConnectedToLobby }
         };
         //Debug.Log("Initialized packets");
     }
