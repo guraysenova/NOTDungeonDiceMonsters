@@ -211,7 +211,7 @@ public class BoxPlacer : MonoBehaviour
                 box.GetComponent<Box>().SetTeam(team);
                 BoardManager.instance.PlaceBox(mirroredDiceUnfoldData[selectedIndex], gameObject , team);
             }
-            //gameObject.GetComponent<Player>().SummonUnit("RedPawn");
+            gameObject.GetComponent<Player>().SummonUnit("RedPawn");
         }
     }
 

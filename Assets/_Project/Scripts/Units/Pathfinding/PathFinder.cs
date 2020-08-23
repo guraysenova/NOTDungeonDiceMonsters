@@ -1,37 +1,4 @@
-﻿/*
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-/   TO-DO : Add Portal Logic
-*/
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PathFinder : MonoBehaviour
@@ -115,37 +82,6 @@ public class PathFinder : MonoBehaviour
         else
         {
             Debug.Log("no path");
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
-            // TO-DO : SHOW UI ERROR
             return;
         }
 
