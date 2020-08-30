@@ -28,8 +28,11 @@ public class Agent : MonoBehaviour
             {
                 break;
             }
-            newPath.Add(new Vector3(path[i].x * 2 , 0 , path[i].y * 2));
+            newPath.Add(new Vector3(path[i].nodeCoordinates.x * 2 , 0 , path[i].nodeCoordinates.y * 2));
         }
+
+
+        // TODO: IMPLEMENT PORTAL CHECK.
 
         gameObject.GetComponent<MovementAgent>().GoPath(newPath);
     }

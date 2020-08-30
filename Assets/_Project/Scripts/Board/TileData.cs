@@ -9,7 +9,13 @@ public class TileData
 
     public bool isFilled;
 
+    public bool isObstacle;
+
     public bool isConnected;
+
+    public bool hasPortal = false;
+
+    public TwoDCoordinate portalDestination;
 
     public List<TeamEnum> teams = new List<TeamEnum>();
 
