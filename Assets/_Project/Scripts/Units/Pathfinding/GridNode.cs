@@ -12,7 +12,6 @@ public class GridNode
     public Vector2Int nodeCoordinates;
 
     public Vector2Int portalNode;
-    public Vector2Int portalNodeCoordinates;
 
     public int globalGoal;
     public int localGoal;
