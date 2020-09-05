@@ -3,6 +3,5 @@
     Up,
     Down,
     Left,
-    Right,
-    Portal
+    Right
 }
