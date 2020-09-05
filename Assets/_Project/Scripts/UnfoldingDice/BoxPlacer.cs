@@ -24,7 +24,14 @@ public class BoxPlacer : MonoBehaviour
     bool isMirrored;
 
     [SerializeField]
-    bool isPlacing;
+    bool isPlacing , isPortal;
+
+    int count = 0;
+
+    Vector2Int startPos, endPos;
+
+    [SerializeField]
+    GameObject portalPrefab;
 
 
     private void Start()
@@ -52,6 +59,9 @@ public class BoxPlacer : MonoBehaviour
             CycleSelectedBoxes();
             CheckRotate();
             SetPositionOnCursor();
+
+            CheckPortal();
+
             PlaceBox(transform.GetComponent<Player>().TeamVal);
             CheckPlaceability(transform.GetComponent<Player>().TeamVal);
         }
@@ -62,6 +72,11 @@ public class BoxPlacer : MonoBehaviour
             transform.GetChild(1).GetChild(0).gameObject.SetActive(isPlacing);
             transform.GetChild(1).GetChild(1).gameObject.SetActive(isPlacing);
         }
+        transform.GetChild(2).gameObject.SetActive(isPortal && count < 2);
+        if (isPortal)
+        {
+            PlacePortal();
+        }
     }
     void CheckMirrored()
     {
@@ -71,6 +86,31 @@ public class BoxPlacer : MonoBehaviour
         }
     }
 
+    void CheckPortal()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            isPortal = !isPortal;
+        }
+    }
+
+    void PlacePortal()
+    {
+        if (Input.GetMouseButtonDown(0) && count < 2)
+        {
+            if(count == 0)
+            {
+                startPos = new Vector2Int((int)transform.position.x / 2, (int)transform.position.z / 2);
+            }
+            else
+            {
+                endPos = new Vector2Int((int)transform.position.x / 2, (int)transform.position.z / 2);
+                BoardManager.instance.PlacePortal(startPos, endPos);
+            }
+            Instantiate(portalPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+            count++;
+        }
+    }
     void Mirror()
     {
         isMirrored = !isMirrored;

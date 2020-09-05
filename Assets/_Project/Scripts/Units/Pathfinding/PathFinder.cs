@@ -53,6 +53,9 @@ public class PathFinder : MonoBehaviour
                     node.x = tileData[index].coordinates.x / 2;
                     node.y = tileData[index].coordinates.y / 2;
                     node.isVisited = -1;
+                    node.hasPortal = tileData[index].hasPortal;
+                    node.portalX = tileData[index].portalX;
+                    node.portalY = tileData[index].portalY;
                     grid[x, y] = node;
                 }
                 else
@@ -103,6 +106,10 @@ public class PathFinder : MonoBehaviour
             {
                 tempList.Add(grid[x + 1, y]);
             }
+            if(TestDirection(x, y, step, Direction.Portal))
+            {
+                tempList.Add(grid[grid[x, y].portalX, grid[x, y].portalY]);
+            }
             GridNode tempNode = FindClosest(grid[targetX / 2, targetY / 2].x, grid[targetX / 2, targetY / 2].y, tempList);
             path.Add(tempNode);
             x = tempNode.x;
@@ -148,7 +155,7 @@ public class PathFinder : MonoBehaviour
             {
                 if(node != null && node.isVisited == step - 1)
                 {
-                    TestFourDirections(node.x, node.y, step);
+                    TestAllDirections(node.x, node.y, step);
                 }
             }
         }
@@ -194,11 +201,20 @@ public class PathFinder : MonoBehaviour
                 {
                     return false;
                 }
+            case Direction.Portal:
+                if(grid[x , y].hasPortal && grid[grid[x, y].portalX , grid[x, y].portalY] != null && grid[grid[x, y].portalX, grid[x, y].portalY].isVisited == step)    
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
         }
         return false;
     }
 
-    void TestFourDirections(int x , int y , int step)
+    void TestAllDirections(int x , int y , int step)
     {
         if(TestDirection(x , y , -1 , Direction.Up))
         {
@@ -215,6 +231,10 @@ public class PathFinder : MonoBehaviour
         if (TestDirection(x, y, -1, Direction.Right))
         {
             SetVisited(x + 1, y, step);
+        }
+        if (TestDirection(x, y, -1, Direction.Portal))
+        {
+            SetVisited(grid[x, y].portalX, grid[x, y].portalY, step);
         }
     }
 }

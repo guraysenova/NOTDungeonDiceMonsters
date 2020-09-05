@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     int movePoints = 100;
 
+
     public PlayerEnum PlayerVal
     {
         get
@@ -132,5 +133,10 @@ public class Player : MonoBehaviour
         GameObject unit = Instantiate(Units.instance.UnitFromId(id), gameObject.transform.position , Quaternion.Euler(0,0,0));
         
         unit.GetComponent<Agent>().Player = player;
+    }
+
+    public void SummonPortal()
+    {
+
     }
 }

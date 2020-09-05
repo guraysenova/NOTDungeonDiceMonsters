@@ -24081,6 +24081,12 @@ PrefabInstance:
       propertyPath: isPlacing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8941816940773482336, guid: 9da9a666d446e2c4b963b977cff23b69,
+        type: 3}
+      propertyPath: portalPrefab
+      value: 
+      objectReference: {fileID: 293346966765146266, guid: 0f7e62c735a24244383098f3bd05a1a6,
+        type: 3}
     - target: {fileID: 8941816940773482338, guid: 9da9a666d446e2c4b963b977cff23b69,
         type: 3}
       propertyPath: m_Name

@@ -208,6 +208,26 @@ public class BoardManager : MonoBehaviour
         }
     }
 
+    public void PlacePortal(Vector2Int startPos , Vector2Int endPos)
+    {
+        foreach (TileData tile in tileData)
+        {
+            if (tile.coordinates.x == startPos.x * 2 && tile.coordinates.y == startPos.y * 2)
+            {
+                tile.hasPortal = true;
+                tile.portalX = endPos.x;
+                tile.portalY = endPos.y;
+            }
+            if (tile.coordinates.x == endPos.x * 2 && tile.coordinates.y == endPos.y * 2)
+            {
+                tile.hasPortal = true;
+                tile.portalX = startPos.x;
+                tile.portalY = startPos.y;
+            }
+        }
+        PathFinder.instance.UpdateGrid(tileData, boardSize);
+    }
+
     List<TileData> GetMyTiles(DiceUnfoldData diceUnfoldData, GameObject obj)
     {
         List<TileData> myTiles = new List<TileData>();
