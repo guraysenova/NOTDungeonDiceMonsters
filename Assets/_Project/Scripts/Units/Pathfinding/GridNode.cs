@@ -13,8 +13,16 @@ public class GridNode
 
     public Vector2Int portalNode;
 
-    public int globalGoal;
-    public int localGoal;
+    public int gCost; // G Cost
+    public int hCost; // H Cost
+
+    public int FCost
+    {
+        get
+        {
+            return gCost + hCost;
+        }
+    }
 
     public GridNode parentNode;
 }
