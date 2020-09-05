@@ -204,7 +204,7 @@ public class BoardManager : MonoBehaviour
                 }
             }
 
-            //PathFinder.instance.UpdateGrid(tileData, boardSize);
+            PathFinder.instance.UpdateGrid(tileData, boardSize);
         }
     }
 

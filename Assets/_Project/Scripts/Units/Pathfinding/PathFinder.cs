@@ -25,7 +25,7 @@ public class PathFinder : MonoBehaviour
     public List<GridNode> GetPath(TwoDCoordinate startPos , TwoDCoordinate endPos)
     {
         UpdateGrid(BoardManager.instance.GetTileData(), boardSize , endPos);
-
+        grid[startPos.x / 2, startPos.y / 2].isVisited = false;
         grid[startPos.x / 2, startPos.y / 2].globalGoal = Mathf.Abs((startPos.x / 2) - (endPos.x / 2)) + Mathf.Abs((startPos.y / 2) - (endPos.y / 2));
         grid[startPos.x / 2, startPos.y / 2].localGoal = 0;
 
@@ -56,8 +56,6 @@ public class PathFinder : MonoBehaviour
 
                 node.isVisited = false;
 
-                node.parentNode = null;
-
                 node.isFilled = tileData[index].isFilled;
                 node.isObstacle = tileData[index].isObstacle;
 
@@ -65,12 +63,6 @@ public class PathFinder : MonoBehaviour
 
                 node.globalGoal = 9999999;
                 node.localGoal = 9999999;
-
-                if (node.hasPortal)
-                {
-                    node.portalNode = new Vector2Int(tileData[index].portalDestination.x / 2, tileData[index].portalDestination.y / 2);                
-                }
-
                 grid[x, y] = node;
 
                 index++;
