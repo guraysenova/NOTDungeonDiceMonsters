@@ -70,6 +70,7 @@ public class PathFinder : MonoBehaviour
 
             foreach (GridNode neighbour in neighbours)
             {
+
                 if (closedSet.Contains(neighbour))
                 {
                     continue;
