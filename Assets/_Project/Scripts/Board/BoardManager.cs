@@ -45,9 +45,7 @@ public class BoardManager : MonoBehaviour
             for (int j = 0; j < boardSize.x; j++)
             {
                 TileData myTile = new TileData();
-                TwoDCoordinate coordinate = new TwoDCoordinate();
-                coordinate.x =  (j * 2);
-                coordinate.y =  (i * 2);
+                TwoDCoordinate coordinate = new TwoDCoordinate((j * 2) , (i * 2));
                 myTile.coordinates = coordinate;
                 GameObject tile = Instantiate(tilePrefab, new Vector3((j * 2), -0.05f, (i * 2)) , Quaternion.Euler(0f,0f,0f));
 
@@ -153,27 +151,19 @@ public class BoardManager : MonoBehaviour
             foreach (TileData myTile in myTiles)
             {
                 TileData tile1 = new TileData();
-                tile1.coordinates = new TwoDCoordinate();
-                tile1.coordinates.x = myTile.coordinates.x + 2;
-                tile1.coordinates.y = myTile.coordinates.y;
+                tile1.coordinates = new TwoDCoordinate(myTile.coordinates.x + 2 , myTile.coordinates.y);
                 connectedTiles.Add(tile1);
 
                 TileData tile2 = new TileData();
-                tile2.coordinates = new TwoDCoordinate();
-                tile2.coordinates.x = myTile.coordinates.x - 2;
-                tile2.coordinates.y = myTile.coordinates.y;
+                tile2.coordinates = new TwoDCoordinate(myTile.coordinates.x - 2 , myTile.coordinates.y);
                 connectedTiles.Add(tile2);
 
                 TileData tile3 = new TileData();
-                tile3.coordinates = new TwoDCoordinate();
-                tile3.coordinates.x = myTile.coordinates.x;
-                tile3.coordinates.y = myTile.coordinates.y - 2;
+                tile3.coordinates = new TwoDCoordinate(myTile.coordinates.x , myTile.coordinates.y - 2);
                 connectedTiles.Add(tile3);
 
                 TileData tile4 = new TileData();
-                tile4.coordinates = new TwoDCoordinate();
-                tile4.coordinates.x = myTile.coordinates.x;
-                tile4.coordinates.y = myTile.coordinates.y + 2;
+                tile4.coordinates = new TwoDCoordinate(myTile.coordinates.x , myTile.coordinates.y + 2);
                 connectedTiles.Add(tile4);
             }
 
@@ -235,15 +225,11 @@ public class BoardManager : MonoBehaviour
         foreach (TwoDCoordinate item in diceUnfoldData.myCoordinates)
         {
             TileData myTile = new TileData();
-            myTile.coordinates = new TwoDCoordinate();
+            myTile.coordinates = new TwoDCoordinate(-1 , -1);
 
-            TwoDCoordinate objPos = new TwoDCoordinate();
-            objPos.x = (int)obj.transform.position.x;
-            objPos.y = (int)obj.transform.position.z;
+            TwoDCoordinate objPos = new TwoDCoordinate((int)obj.transform.position.x , (int)obj.transform.position.z);
 
-            TwoDCoordinate pos = new TwoDCoordinate();
-            pos.x = 2 * item.x;
-            pos.y = -2 * item.y;
+            TwoDCoordinate pos = new TwoDCoordinate(2 * item.x, -2 * item.y);
 
             if (obj.transform.eulerAngles.y < 1f && obj.transform.eulerAngles.y > -1f)
             {

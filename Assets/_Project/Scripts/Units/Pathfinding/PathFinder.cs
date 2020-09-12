@@ -6,7 +6,7 @@ public class PathFinder : MonoBehaviour
     [SerializeField]
     GridNode[,] grid;
 
-    TwoDCoordinate boardSize = new TwoDCoordinate();
+    TwoDCoordinate boardSize;
 
     public static PathFinder instance;
 
@@ -35,7 +35,7 @@ public class PathFinder : MonoBehaviour
 
     public void SetGrid(List<TileData> tileData , TwoDCoordinate boardSize)
     {
-        this.boardSize = boardSize;
+        this.boardSize = new TwoDCoordinate(boardSize.x, boardSize.y);
         grid = new GridNode[boardSize.x, boardSize.y];
         UpdateGrid(tileData, boardSize);
     }
@@ -84,7 +84,7 @@ public class PathFinder : MonoBehaviour
         }
         else
         {
-            Debug.Log("no path");
+            //Debug.Log("no path");
             return;
         }
 
@@ -125,13 +125,13 @@ public class PathFinder : MonoBehaviour
 
     GridNode FindClosest(int x , int y , List<GridNode> nodes)
     {
-        float currentDistance = 999999f;
+        int currentDistance = 999999;
         int indexNumber = 0;
         for (int i = 0; i < nodes.Count; i++)
         {
-            if(Vector2.Distance(new Vector2(x , y) , new Vector2(nodes[i].x , nodes[i].y)) < currentDistance)
+            if(TwoDCoordinate.Distance(new TwoDCoordinate(x,y) , new TwoDCoordinate(nodes[i].x , nodes[i].y)) < currentDistance)
             {
-                currentDistance = Vector2.Distance(new Vector2(x, y), new Vector2(nodes[i].x, nodes[i].y));
+                currentDistance = TwoDCoordinate.Distance(new TwoDCoordinate(x, y), new TwoDCoordinate(nodes[i].x, nodes[i].y));
                 indexNumber = i;
             }
         }

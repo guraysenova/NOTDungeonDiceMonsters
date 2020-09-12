@@ -75,16 +75,9 @@ public class Player : MonoBehaviour
                 {
                     if(selectedAgent != null && movePoints > 0)
                     {
-                        TwoDCoordinate startPos = new TwoDCoordinate();
+                        TwoDCoordinate startPos = new TwoDCoordinate(Mathf.RoundToInt(selectedAgent.gameObject.transform.position.x) , Mathf.RoundToInt(selectedAgent.gameObject.transform.position.z));
 
-                        startPos.x = Mathf.RoundToInt(selectedAgent.gameObject.transform.position.x);
-                        startPos.y = Mathf.RoundToInt(selectedAgent.gameObject.transform.position.z);
-
-                        TwoDCoordinate endPos = new TwoDCoordinate();
-
-                        endPos.x = Mathf.RoundToInt(gameObject.transform.position.x);
-                        endPos.y = Mathf.RoundToInt(gameObject.transform.position.z);
-
+                        TwoDCoordinate endPos = new TwoDCoordinate(Mathf.RoundToInt(gameObject.transform.position.x) , Mathf.RoundToInt(gameObject.transform.position.z));
 
                         if (!BoardManager.instance.GetTile(endPos).isFilled)
                         {
