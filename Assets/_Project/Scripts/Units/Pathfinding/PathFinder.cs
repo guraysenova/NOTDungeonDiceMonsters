@@ -1,25 +1,12 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
-public class PathFinder : MonoBehaviour
+public class PathFinder
 {
-    [SerializeField]
     GridNode[,] grid;
 
     TwoDCoordinate boardSize;
 
-    public static PathFinder instance;
-
-    [SerializeField]
     List<GridNode> path = new List<GridNode>();
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-    }
 
     public List<GridNode> GetPath(TwoDCoordinate startPos , TwoDCoordinate endPos)
     {
@@ -117,10 +104,10 @@ public class PathFinder : MonoBehaviour
             tempList.Clear();
         }
 
-        foreach (var item in path)
+        /*foreach (var item in path)
         {
             Debug.Log(item.x + " " + item.y + " " + item.isVisited);
-        }
+        }*/
     }
 
     GridNode FindClosest(int x , int y , List<GridNode> nodes)

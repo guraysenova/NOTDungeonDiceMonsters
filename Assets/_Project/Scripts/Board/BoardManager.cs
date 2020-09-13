@@ -14,6 +14,8 @@ public class BoardManager : MonoBehaviour
     [SerializeField]
     List<TileData> tileData = new List<TileData>();
 
+    PathFinder pathFinder = new PathFinder();
+
     public static BoardManager instance;
 
     private void Awake()
@@ -30,7 +32,15 @@ public class BoardManager : MonoBehaviour
     void Start()
     {
         Board();
-        PathFinder.instance.SetGrid(tileData, boardSize);
+        pathFinder.SetGrid(tileData, boardSize);
+    }
+
+    public PathFinder PathFinder
+    {
+        get
+        {
+            return pathFinder;
+        }
     }
 
     public List<TileData> GetTileData()
@@ -194,7 +204,7 @@ public class BoardManager : MonoBehaviour
                 }
             }
 
-            PathFinder.instance.UpdateGrid(tileData, boardSize);
+            pathFinder.UpdateGrid(tileData, boardSize);
         }
     }
 
@@ -215,7 +225,7 @@ public class BoardManager : MonoBehaviour
                 tile.portalY = startPos.y;
             }
         }
-        PathFinder.instance.UpdateGrid(tileData, boardSize);
+        pathFinder.UpdateGrid(tileData, boardSize);
     }
 
     List<TileData> GetMyTiles(DiceUnfoldData diceUnfoldData, GameObject obj)

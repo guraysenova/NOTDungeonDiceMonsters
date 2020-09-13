@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
                             return;
                         }
 
-                        List<GridNode> path = PathFinder.instance.GetPath(startPos, endPos);
+                        List<GridNode> path = BoardManager.instance.PathFinder.GetPath(startPos, endPos);
 
                         // move
                         selectedAgent.GoPath(path, movePoints);
