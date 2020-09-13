@@ -8,9 +8,9 @@ public class PathFinder
 
     List<GridNode> path = new List<GridNode>();
 
-    public List<GridNode> GetPath(TwoDCoordinate startPos , TwoDCoordinate endPos)
+    public List<GridNode> GetPath(List<TileData> tileData , TwoDCoordinate startPos , TwoDCoordinate endPos)
     {
-        UpdateGrid(BoardManager.instance.GetTileData(), boardSize);
+        UpdateGrid(tileData, boardSize);
         grid[startPos.x / 2, startPos.y / 2].isVisited = 0;
         SetDistance(startPos.x, startPos.y);
         SetPath(endPos.x, endPos.y);

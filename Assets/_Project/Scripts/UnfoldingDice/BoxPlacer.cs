@@ -28,10 +28,12 @@ public class BoxPlacer : MonoBehaviour
 
     int count = 0;
 
-    Vector2Int startPos, endPos;
+    TwoDCoordinate startPos, endPos;
 
     [SerializeField]
     GameObject portalPrefab;
+
+    int rotation = 0;
 
 
     private void Start()
@@ -100,12 +102,12 @@ public class BoxPlacer : MonoBehaviour
         {
             if(count == 0)
             {
-                startPos = new Vector2Int((int)transform.position.x / 2, (int)transform.position.z / 2);
+                startPos = new TwoDCoordinate((int)transform.position.x / 2, (int)transform.position.z / 2);
             }
             else
             {
-                endPos = new Vector2Int((int)transform.position.x / 2, (int)transform.position.z / 2);
-                BoardManager.instance.PlacePortal(startPos, endPos);
+                endPos = new TwoDCoordinate((int)transform.position.x / 2, (int)transform.position.z / 2);
+                BoardManager.instance.Board.PlacePortal(startPos, endPos);
             }
             Instantiate(portalPrefab, transform.position, Quaternion.Euler(0, 0, 0));
             count++;
@@ -133,11 +135,11 @@ public class BoxPlacer : MonoBehaviour
     {
         if (!isMirrored)
         {
-            canPlace = BoardManager.instance.CanPlace(diceUnfoldData[selectedIndex], gameObject , team);
+            canPlace = BoardManager.instance.Board.CanPlace(diceUnfoldData[selectedIndex], new TwoDCoordinate((int)transform.position.x, (int)transform.position.z), (Rotation)rotation, team);
         }
         else
         {
-            canPlace = BoardManager.instance.CanPlace(mirroredDiceUnfoldData[selectedIndex], gameObject, team);
+            canPlace = BoardManager.instance.Board.CanPlace(mirroredDiceUnfoldData[selectedIndex], new TwoDCoordinate((int)transform.position.x, (int)transform.position.z), (Rotation)rotation, team);
         }
         transform.GetChild(0).gameObject.SetActive(canPlace);
         transform.GetChild(1).gameObject.SetActive(!canPlace);
@@ -225,6 +227,22 @@ public class BoxPlacer : MonoBehaviour
     void Rotate()
     {
         gameObject.transform.eulerAngles += (Vector3.up * 90f);
+        if(gameObject.transform.eulerAngles.y <= 0.1f && gameObject.transform.eulerAngles.y > 359.9f)
+        {
+            rotation = 0;
+        }
+        if (gameObject.transform.eulerAngles.y <= 90.1f && gameObject.transform.eulerAngles.y > 89.9f)
+        {
+            rotation = 1;
+        }
+        if (gameObject.transform.eulerAngles.y <= 180.1f && gameObject.transform.eulerAngles.y > 179.9f)
+        {
+            rotation = 2;
+        }
+        if (gameObject.transform.eulerAngles.y <= 270.1f && gameObject.transform.eulerAngles.y > 269.9f)
+        {
+            rotation = 3;
+        }
     }
 
     void CheckRotate()
@@ -243,13 +261,13 @@ public class BoxPlacer : MonoBehaviour
             {
                 GameObject box = Instantiate(foldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
                 box.GetComponent<Box>().SetTeam(team);
-                BoardManager.instance.PlaceBox(diceUnfoldData[selectedIndex], gameObject , team);
+                BoardManager.instance.Board.PlaceBox(diceUnfoldData[selectedIndex], new TwoDCoordinate((int)transform.position.x , (int)transform.position.z), (Rotation)rotation , team);
             }
             else
             {
                 GameObject box = Instantiate(mirroredFoldedBoxesPrefabs[selectedIndex], gameObject.transform.position, Quaternion.Euler(gameObject.transform.rotation.eulerAngles));
                 box.GetComponent<Box>().SetTeam(team);
-                BoardManager.instance.PlaceBox(mirroredDiceUnfoldData[selectedIndex], gameObject , team);
+                BoardManager.instance.Board.PlaceBox(mirroredDiceUnfoldData[selectedIndex], new TwoDCoordinate((int)transform.position.x, (int)transform.position.z), (Rotation)rotation , team);
             }
             gameObject.GetComponent<Player>().SummonUnit("RedPawn");
         }

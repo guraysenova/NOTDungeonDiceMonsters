@@ -79,13 +79,13 @@ public class Player : MonoBehaviour
 
                         TwoDCoordinate endPos = new TwoDCoordinate(Mathf.RoundToInt(gameObject.transform.position.x) , Mathf.RoundToInt(gameObject.transform.position.z));
 
-                        if (!BoardManager.instance.GetTile(endPos).isFilled)
+                        if (!BoardManager.instance.Board.GetTile(endPos).isFilled)
                         {
                             selectedAgent = null;
                             return;
                         }
 
-                        List<GridNode> path = BoardManager.instance.PathFinder.GetPath(startPos, endPos);
+                        List<GridNode> path = BoardManager.instance.Board.PathFinder.GetPath(BoardManager.instance.Board.GetTileData(),startPos, endPos);
 
                         // move
                         selectedAgent.GoPath(path, movePoints);
