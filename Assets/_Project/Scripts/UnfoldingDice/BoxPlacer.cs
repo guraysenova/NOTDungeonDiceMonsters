@@ -35,7 +35,6 @@ public class BoxPlacer : MonoBehaviour
 
     int rotation = 0;
 
-
     private void Start()
     {
         Rotate();
