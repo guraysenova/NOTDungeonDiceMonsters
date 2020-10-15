@@ -9,8 +9,6 @@ public class Board
 
     PathFinder pathFinder = new PathFinder();
 
-    public static BoardManager instance;
-
     public Board(TwoDCoordinate _boardSize)
     {
         boardSize = _boardSize;
