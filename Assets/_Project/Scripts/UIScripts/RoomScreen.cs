@@ -60,4 +60,9 @@ public class RoomScreen : MonoBehaviour
     {
         ClientSend.ExitRoom();
     }
+
+    public void StartRoom()
+    {
+        ClientSend.StartRoom();
+    }
 }

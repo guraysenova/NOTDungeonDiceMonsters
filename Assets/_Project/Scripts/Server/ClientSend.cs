@@ -78,4 +78,12 @@ public class ClientSend : MonoBehaviour
             SendTCPData(packet);
         }
     }
+
+    public static void StartRoom()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.StartRoom))
+        {
+            SendTCPData(packet);
+        }
+    }
 }

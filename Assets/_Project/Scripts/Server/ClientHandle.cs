@@ -73,4 +73,9 @@ public class ClientHandle : MonoBehaviour
         RoomScreen.instance.SetRoomData(roomName, players);
         UIManager.instance.OpenRoomScreen();
     }
+
+    public static void RoomStarted(Packet packet)
+    {
+
+    }
 }
