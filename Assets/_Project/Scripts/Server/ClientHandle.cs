@@ -74,8 +74,13 @@ public class ClientHandle : MonoBehaviour
         UIManager.instance.OpenRoomScreen();
     }
 
+    public static void RoomStarting(Packet packet)
+    {
+        // TODO: show joining match server UI thingy
+    }
+
     public static void RoomStarted(Packet packet)
     {
-
+        // TODO: join the match server
     }
 }
