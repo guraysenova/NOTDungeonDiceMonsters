@@ -18,6 +18,8 @@ public class Client : MonoBehaviour
 
     public static string token = "";
 
+    public static string roomUUID = "";
+
     private bool isConnected = false;
 
     private delegate void PacketHandler(Packet packet);
@@ -198,7 +200,9 @@ public class Client : MonoBehaviour
             {(int)ServerPackets.ConnectedToLobby , ClientHandle.ConnectedToLobby },
             {(int)ServerPackets.RoomData , ClientHandle.RoomData },
             {(int)ServerPackets.RoomStarting , ClientHandle.RoomStarting },
-            {(int)ServerPackets.RoomStarted , ClientHandle.RoomStarted }
+            {(int)ServerPackets.RoomStarted , ClientHandle.RoomStarted },
+            {(int)ServerPackets.MatchTokenRequest , ClientHandle.MatchTokenRequest },
+            {(int)ServerPackets.MatchStarted , ClientHandle.MatchStarted }
         };
         //Debug.Log("Initialized packets");
     }

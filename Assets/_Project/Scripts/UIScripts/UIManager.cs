@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
     {
         animator.SetLayerWeight(1, 1);
         animator.SetLayerWeight(2, 0);
+        animator.SetLayerWeight(3, 0);
+        animator.SetLayerWeight(4, 0);
+        animator.SetLayerWeight(5, 0);
 
         animator.SetTrigger("EP_LoginScreen");
     }
@@ -34,6 +37,9 @@ public class UIManager : MonoBehaviour
     {
         animator.SetLayerWeight(1, 1);
         animator.SetLayerWeight(2, 0);
+        animator.SetLayerWeight(3, 0);
+        animator.SetLayerWeight(4, 0);
+        animator.SetLayerWeight(5, 0);
 
         animator.SetTrigger("EP_WaitingConnection");
     }
@@ -44,6 +50,8 @@ public class UIManager : MonoBehaviour
         animator.SetLayerWeight(2, 1);
         animator.SetLayerWeight(3, 0);
         animator.SetLayerWeight(4, 0);
+        animator.SetLayerWeight(5, 0);
+
         animator.SetTrigger("L_LobbyScreen");
     }
 
@@ -53,6 +61,8 @@ public class UIManager : MonoBehaviour
         animator.SetLayerWeight(2, 0);
         animator.SetLayerWeight(3, 1);
         animator.SetLayerWeight(4, 0);
+        animator.SetLayerWeight(5, 0);
+
         animator.SetTrigger("CR_CreateRoomScreen");
     }
 
@@ -62,6 +72,30 @@ public class UIManager : MonoBehaviour
         animator.SetLayerWeight(2, 0);
         animator.SetLayerWeight(3, 0);
         animator.SetLayerWeight(4, 1);
+        animator.SetLayerWeight(5, 0);
+
         animator.SetTrigger("R_RoomScreen");
+    }
+
+    public void OpenStartingRoomScreen()
+    {
+        animator.SetLayerWeight(1, 0);
+        animator.SetLayerWeight(2, 0);
+        animator.SetLayerWeight(3, 0);
+        animator.SetLayerWeight(4, 1);
+        animator.SetLayerWeight(5, 0);
+
+        animator.SetTrigger("R_StartingRoom");
+    }
+
+    public void OpenGameScreen()
+    {
+        animator.SetLayerWeight(1, 0);
+        animator.SetLayerWeight(2, 0);
+        animator.SetLayerWeight(3, 0);
+        animator.SetLayerWeight(4, 0);
+        animator.SetLayerWeight(5, 0);
+
+        animator.SetTrigger("G_GameScreen");
     }
 }

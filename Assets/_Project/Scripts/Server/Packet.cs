@@ -12,7 +12,9 @@ public enum ServerPackets
     ConnectedToLobby = 5,
     RoomData = 6,
     RoomStarting = 7,
-    RoomStarted = 8
+    RoomStarted = 8,
+    MatchTokenRequest = 9,
+    MatchStarted = 10
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -26,7 +28,8 @@ public enum ClientPackets
     LoginRoom = 6,
     ExitRoom = 7,
     ToggleReady = 8,
-    StartRoom = 9
+    StartRoom = 9,
+    MatchToken = 10
 }
 
 public class Packet : IDisposable

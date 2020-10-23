@@ -20,11 +20,6 @@ public class ClientHandle : MonoBehaviour
         UIManager.instance.OpenLobbyScreen();
     }
 
-    public static void ConnectedToMatch(Packet packet)
-    {
-        // open game screen set up
-    }
-
     public static void Token(Packet packet)
     {
         string token = packet.ReadString();
@@ -76,11 +71,31 @@ public class ClientHandle : MonoBehaviour
 
     public static void RoomStarting(Packet packet)
     {
-        // TODO: show joining match server UI thingy
+        UIManager.instance.OpenStartingRoomScreen();
     }
 
     public static void RoomStarted(Packet packet)
     {
-        // TODO: join the match server
+        Client.roomUUID = packet.ReadString();
+
+        string ipAdress = packet.ReadString();
+        int port = packet.ReadInt();
+
+        Client.token = packet.ReadString();
+
+        Client.instance.SetIpPort(ipAdress, port);
+    }
+
+    public static void MatchTokenRequest(Packet packet)
+    {
+        Client.instance.myId = packet.ReadInt();
+
+        ClientSend.MatchToken(Client.token , Client.instance.myId, Client.roomUUID , SaveManager.Instance.playerState.UUID);
+    }
+
+    public static void MatchStarted(Packet packet)
+    {
+        int order = packet.ReadInt();
+        // TODO: Get is player number one or two , set game up , open game UI etc
     }
 }

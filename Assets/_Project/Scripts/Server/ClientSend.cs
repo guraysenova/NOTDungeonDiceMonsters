@@ -86,4 +86,19 @@ public class ClientSend : MonoBehaviour
             SendTCPData(packet);
         }
     }
+
+    public static void MatchToken(string token , int id ,string roomUUID , string clientUUID)
+    {
+        using(Packet packet = new Packet((int)ClientPackets.MatchToken))
+        {
+            packet.Write(token);
+            packet.Write(id);
+            packet.Write(roomUUID);
+            packet.Write(clientUUID);
+
+            SendTCPData(packet);
+        }
+    }
+
+    // TODO: Plan out game data etc and make functions here
 }
