@@ -126,7 +126,7 @@ public class Client : MonoBehaviour
             }
             catch (Exception exception)
             {
-
+                Debug.Log(exception.ToString());
                 Disconnect();
 
             }
@@ -135,6 +135,7 @@ public class Client : MonoBehaviour
         private void Disconnect()
         {
             instance.Disconnect();
+
             stream = null;
             receivedData = null;
             receiveBuffer = null;
@@ -144,7 +145,6 @@ public class Client : MonoBehaviour
         private bool HandleData(byte[] data)
         {
             int packetLength = 0;
-
             receivedData.SetBytes(data);
 
             if(receivedData.UnreadLength() >= 4)

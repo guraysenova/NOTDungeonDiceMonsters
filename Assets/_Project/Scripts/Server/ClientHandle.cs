@@ -88,6 +88,7 @@ public class ClientHandle : MonoBehaviour
 
     public static void MatchTokenRequest(Packet packet)
     {
+        Debug.Log(packet.ReadString());
         Client.instance.myId = packet.ReadInt();
 
         ClientSend.MatchToken(Client.token , Client.instance.myId, Client.roomUUID , SaveManager.Instance.playerState.UUID);
