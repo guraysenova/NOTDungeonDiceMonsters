@@ -41,7 +41,7 @@ public class Client : MonoBehaviour
     {
         ip = ipAdress;
         port = portVal;
-        Disconnect();
+        //Disconnect();
         ConnectToServer();
     }
 
@@ -212,7 +212,10 @@ public class Client : MonoBehaviour
         if (isConnected)
         {
             isConnected = false;
-            tcp.socket.Close();
+            tcp.socket.Client.Disconnect(false);
+            //tcp.socket.GetStream().Close();
+            //tcp.socket.Close();
+            //tcp.socket.Client.Shutdown(SocketShutdown.Both);
 
             Debug.Log("Disconnected");
         }
@@ -220,6 +223,9 @@ public class Client : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        //tcp.socket.Client.Shutdown(SocketShutdown.Both);
+        //tcp.socket.GetStream().Close();
+        //tcp.socket.Close();
         Disconnect();
     }
 }
