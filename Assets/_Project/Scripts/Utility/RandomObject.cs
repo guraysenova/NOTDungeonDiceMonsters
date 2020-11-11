@@ -26,7 +26,6 @@ public static class RandomObject
                     continue;
                 }
             }
-
             return obj;
         }
         else
