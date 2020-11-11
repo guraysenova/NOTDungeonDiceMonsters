@@ -11,8 +11,7 @@ public static class RandomObject
             Debug.LogError("LIST IS EMPTY!!");
         }
 
-        int max = collection.Count();
-        T obj = collection.ElementAt(Random.Range(0, max));
+        T obj = collection.ElementAt(Random.Range(0, collection.Count()));
 
         if(exception != null)
         {
