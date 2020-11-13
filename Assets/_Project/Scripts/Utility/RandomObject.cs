@@ -10,7 +10,10 @@ public static class RandomObject
         {
             Debug.LogError("LIST IS EMPTY!!");
         }
-
+        if(collection.Count() == 1)
+        {
+            return collection.ElementAt(0);
+        }
         T obj = collection.ElementAt(Random.Range(0, collection.Count()));
 
         if(exception != null)
