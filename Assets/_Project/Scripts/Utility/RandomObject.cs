@@ -10,14 +10,34 @@ public static class RandomObject
         {
             Debug.LogError("LIST IS EMPTY!!");
         }
-        if(collection.Count() == 1)
+
+        if (collection.Count() == 1)
         {
+            Debug.LogWarning("YOUR COLLECTION ONLY HAS ONE ITEM , RETURNING FIRST ITEM IN THE COLLECTION");
             return collection.ElementAt(0);
         }
+
         T obj = collection.ElementAt(Random.Range(0, collection.Count()));
 
-        if(exception != null)
+        if (exception != null)
         {
+            if (collection.Count() <= exception.Count())
+            {
+                int exceptionMatchCount = 0;
+                foreach (var item in collection)
+                {
+                    if (exception.Contains(item))
+                    {
+                        exceptionMatchCount++;
+                    }
+                }
+                if (exceptionMatchCount == collection.Count())
+                {
+                    Debug.LogWarning("YOUR EXCEPTION INCLUDES ALL THE OBJECTS IN THE COLLECTION! , RETURNING FIRST ITEM IN THE COLLECTION");
+                    return collection.ElementAt(0);
+                }
+            }
+
             foreach (var item in exception)
             {
                 if (item.Equals(obj))
@@ -29,6 +49,7 @@ public static class RandomObject
                     continue;
                 }
             }
+
             return obj;
         }
         else
