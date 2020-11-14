@@ -8,12 +8,12 @@ public static class RandomObject
     {
         if (collection == null || collection.Count() == 0)
         {
-            Debug.LogError("LIST IS EMPTY!!");
+            Debug.LogError("THE GIVEN LIST IS EMPTY!!");
         }
 
         if (collection.Count() == 1)
         {
-            Debug.LogWarning("YOUR COLLECTION ONLY HAS ONE ITEM , RETURNING FIRST ITEM IN THE COLLECTION");
+            Debug.LogWarning("YOUR COLLECTION ONLY HAS ONE ITEM , RETURNING THE FIRST ITEM IN THE COLLECTION");
             return collection.ElementAt(0);
         }
 
@@ -21,21 +21,22 @@ public static class RandomObject
 
         if (exception != null)
         {
-            if (collection.Count() <= exception.Count())
+            int exceptionMatchCount = 0;
+            foreach (var item in collection)
             {
-                int exceptionMatchCount = 0;
-                foreach (var item in collection)
+                if (exception.Contains(item))
                 {
-                    if (exception.Contains(item))
-                    {
-                        exceptionMatchCount++;
-                    }
+                    exceptionMatchCount++;
                 }
-                if (exceptionMatchCount == collection.Count())
+                else
                 {
-                    Debug.LogWarning("YOUR EXCEPTION INCLUDES ALL THE OBJECTS IN THE COLLECTION! , RETURNING FIRST ITEM IN THE COLLECTION");
-                    return collection.ElementAt(0);
+                    break;
                 }
+            }
+            if (exceptionMatchCount == collection.Count())
+            {
+                Debug.LogWarning("YOUR EXCEPTION INCLUDES ALL THE OBJECTS IN THE COLLECTION! , RETURNING THE FIRST ITEM IN THE COLLECTION");
+                return collection.ElementAt(0);
             }
 
             foreach (var item in exception)
