@@ -100,5 +100,55 @@ public class ClientSend : MonoBehaviour
         }
     }
 
+    public static void Ready()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.Ready))
+        {
+
+
+            SendTCPData(packet);
+        }
+    }
+
+    public static void PlaceBox()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.PlaceBox))
+        {
+
+
+            SendTCPData(packet);
+        }
+    }
+
+    public static void MoveAgent()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.MoveAgent))
+        {
+
+
+            SendTCPData(packet);
+        }
+    }
+
+    public static void Attack()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.Attack))
+        {
+
+
+            SendTCPData(packet);
+        }
+    }
+
+    public static void EndTurn()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.EndTurn))
+        {
+
+
+            SendTCPData(packet);
+        }
+    }
+
     // TODO: Plan out game data etc and make functions here
 }

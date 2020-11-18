@@ -202,7 +202,11 @@ public class Client : MonoBehaviour
             {(int)ServerPackets.RoomStarting , ClientHandle.RoomStarting },
             {(int)ServerPackets.RoomStarted , ClientHandle.RoomStarted },
             {(int)ServerPackets.MatchTokenRequest , ClientHandle.MatchTokenRequest },
-            {(int)ServerPackets.MatchStarted , ClientHandle.MatchStarted }
+            {(int)ServerPackets.MatchStarted , ClientHandle.MatchStarted },
+            {(int)ServerPackets.PlaceBox , ClientHandle.PlaceBox },
+            {(int)ServerPackets.MoveAgent , ClientHandle.MoveAgent },
+            {(int)ServerPackets.Attack , ClientHandle.Attack },
+            {(int)ServerPackets.EndTurn , ClientHandle.EndTurn }
         };
         //Debug.Log("Initialized packets");
     }

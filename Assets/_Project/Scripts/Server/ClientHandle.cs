@@ -99,4 +99,24 @@ public class ClientHandle : MonoBehaviour
         int order = packet.ReadInt();
         // TODO: Get is player number one or two , set game up , open game UI etc
     }
+
+    public static void PlaceBox(Packet packet)
+    {
+        
+    }
+
+    public static void MoveAgent(Packet packet)
+    {
+
+    }
+
+    public static void Attack(Packet packet)
+    {
+
+    }
+
+    public static void EndTurn(Packet packet)
+    {
+
+    }
 }

@@ -14,7 +14,11 @@ public enum ServerPackets
     RoomStarting = 7,
     RoomStarted = 8,
     MatchTokenRequest = 9,
-    MatchStarted = 10
+    MatchStarted = 10,
+    PlaceBox = 11,
+    MoveAgent = 12,
+    Attack = 13,
+    EndTurn = 14
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -29,7 +33,12 @@ public enum ClientPackets
     ExitRoom = 7,
     ToggleReady = 8,
     StartRoom = 9,
-    MatchToken = 10
+    MatchToken = 10,
+    Ready = 11,
+    PlaceBox = 12,
+    MoveAgent = 13,
+    Attack = 14,
+    EndTurn = 15
 }
 
 public class Packet : IDisposable
