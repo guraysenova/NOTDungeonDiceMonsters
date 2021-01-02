@@ -96,7 +96,9 @@ public class ClientHandle : MonoBehaviour
 
     public static void MatchStarted(Packet packet)
     {
-        int order = packet.ReadInt();
+        TeamEnum teamEnum = (TeamEnum)packet.ReadInt();
+        PlayerEnum playerEnum = (PlayerEnum)packet.ReadInt();
+        Player.instance.SetPlayerData(teamEnum, playerEnum);
         // TODO: Get is player number one or two , set game up , open game UI etc
     }
 

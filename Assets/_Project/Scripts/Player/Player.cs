@@ -18,6 +18,21 @@ public class Player : MonoBehaviour
     [SerializeField]
     int movePoints = 100;
 
+    public static Player instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    public void SetPlayerData(TeamEnum teamEnum , PlayerEnum playerEnum)
+    {
+        team = teamEnum;
+        player = playerEnum;
+    }
 
     public PlayerEnum PlayerVal
     {
