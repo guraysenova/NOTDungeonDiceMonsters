@@ -95,21 +95,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            wannaSummon = !wannaSummon;
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            if(player.Team == TeamEnum.Team1)
-            {
-                player.Team = TeamEnum.Team2;
-            }
-            else if (player.Team == TeamEnum.Team2)
-            {
-                player.Team = TeamEnum.Team1;
-            }
-        }
     }
 
     public void SummonUnit(string id)

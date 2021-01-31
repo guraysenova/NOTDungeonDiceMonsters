@@ -21551,6 +21551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5a5114255db6940b535d7f4159d863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnText: {fileID: 874872604}
+  phaseText: {fileID: 216851218}
 --- !u!95 &2804451367376823705
 Animator:
   serializedVersion: 3

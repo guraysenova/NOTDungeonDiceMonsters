@@ -92,6 +92,7 @@ public class ClientHandle : MonoBehaviour
         Client.instance.myId = packet.ReadInt();
 
         ClientSend.MatchToken(Client.token , Client.instance.myId, Client.roomUUID , SaveManager.Instance.playerState.UUID);
+        ClientSend.Ready();
     }
 
     public static void MatchStarted(Packet packet)
@@ -119,7 +120,6 @@ public class ClientHandle : MonoBehaviour
         Player.instance.SetPlayerData(teamEnum, playerEnum , id);
         CameraController.instance.SetPosition(teamEnum, playerEnum);
         Game.instance.GameStarted(teams);
-        // TODO: Get is player number one or two , set game up , open game UI etc
     }
 
     public static void PlaceBox(Packet packet)

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -7,6 +8,9 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     Animator animator;
+
+    [SerializeField]
+    TextMeshProUGUI turnText, phaseText;
 
     private void Start()
     {
@@ -106,6 +110,7 @@ public class UIManager : MonoBehaviour
 
     public void SetTurnData(string turnType , string phaseType)
     {
-
+        turnText.text = turnType;
+        phaseText.text = phaseType;
     }
 }
