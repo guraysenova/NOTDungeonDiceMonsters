@@ -94,8 +94,18 @@ public class UIManager : MonoBehaviour
         animator.SetLayerWeight(2, 0);
         animator.SetLayerWeight(3, 0);
         animator.SetLayerWeight(4, 0);
-        animator.SetLayerWeight(5, 0);
+        animator.SetLayerWeight(5, 1);
 
         animator.SetTrigger("G_GameScreen");
+    }
+
+    public void SetGameUIData()
+    {
+
+    }
+
+    public void SetTurnData(string turnType , string phaseType)
+    {
+
     }
 }

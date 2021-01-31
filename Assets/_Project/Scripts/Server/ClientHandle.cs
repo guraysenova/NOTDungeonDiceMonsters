@@ -98,7 +98,27 @@ public class ClientHandle : MonoBehaviour
     {
         TeamEnum teamEnum = (TeamEnum)packet.ReadInt();
         PlayerEnum playerEnum = (PlayerEnum)packet.ReadInt();
-        Player.instance.SetPlayerData(teamEnum, playerEnum);
+        int id = packet.ReadInt();
+        int teamCount = packet.ReadInt();
+        List<Team> teams = new List<Team>();
+        for (int i = 0; i < teamCount; i++)
+        {
+            List<ServerPlayer> players = new List<ServerPlayer>();
+            int playersCount = packet.ReadInt();
+            int serverTeamEnum = -1;
+            for (int j = 0; j < playersCount; j++)
+            {
+                int teamEnumInt = packet.ReadInt();
+                int playerEnumInt = packet.ReadInt();
+                int playerID = packet.ReadInt();
+                serverTeamEnum = teamEnumInt;
+                players.Add(new ServerPlayer((TeamEnum)teamEnumInt , (PlayerEnum)playerEnumInt , playerID));
+            }
+            teams.Add(new Team(players, (TeamEnum)serverTeamEnum));
+        }
+        Player.instance.SetPlayerData(teamEnum, playerEnum , id);
+        CameraController.instance.SetPosition(teamEnum, playerEnum);
+        Game.instance.GameStarted(teams);
         // TODO: Get is player number one or two , set game up , open game UI etc
     }
 

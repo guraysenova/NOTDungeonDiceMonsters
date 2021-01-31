@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    PlayerEnum player = PlayerEnum.Player1;
+    ServerPlayer player;
 
-    [SerializeField]
-    TeamEnum team = TeamEnum.Team1;
+    public ServerPlayer PlayerData
+    {
+        get { return player; }
+    }
 
     [SerializeField]
     bool wannaSummon;
@@ -28,34 +29,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetPlayerData(TeamEnum teamEnum , PlayerEnum playerEnum)
+    public void SetPlayerData(TeamEnum teamEnum , PlayerEnum playerEnum , int id)
     {
-        team = teamEnum;
-        player = playerEnum;
-    }
-
-    public PlayerEnum PlayerVal
-    {
-        get
-        {
-            return player;
-        }
-        set
-        {
-            player = value;
-        }
-    }
-
-    public TeamEnum TeamVal
-    {
-        get
-        {
-            return team;
-        }
-        set
-        {
-            team = value;
-        }
+        player = new ServerPlayer(teamEnum, playerEnum, id);
     }
 
     private void Update()
@@ -125,13 +101,13 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            if(team == TeamEnum.Team1)
+            if(player.Team == TeamEnum.Team1)
             {
-                team = TeamEnum.Team2;
+                player.Team = TeamEnum.Team2;
             }
-            else if (team == TeamEnum.Team2)
+            else if (player.Team == TeamEnum.Team2)
             {
-                team = TeamEnum.Team1;
+                player.Team = TeamEnum.Team1;
             }
         }
     }
@@ -140,7 +116,7 @@ public class Player : MonoBehaviour
     {
         GameObject unit = Instantiate(Units.instance.UnitFromId(id), gameObject.transform.position , Quaternion.Euler(0,0,0));
         
-        unit.GetComponent<Agent>().Player = player;
+        unit.GetComponent<Agent>().Player = player.Player;
     }
 
     public void SummonPortal()

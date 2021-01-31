@@ -63,8 +63,8 @@ public class BoxPlacer : MonoBehaviour
 
             CheckPortal();
 
-            PlaceBox(transform.GetComponent<Player>().TeamVal);
-            CheckPlaceability(transform.GetComponent<Player>().TeamVal);
+            PlaceBox(transform.GetComponent<Player>().PlayerData.Team);
+            CheckPlaceability(transform.GetComponent<Player>().PlayerData.Team);
         }
         else
         {
